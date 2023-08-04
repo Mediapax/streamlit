@@ -62,17 +62,12 @@ if page == pages[1] :
   plt.title("Survie en fonction de l'âge et de la classe")
   st.pyplot(fig)
 
-  # Survived,Pclass,Sex,Age,SibSp,Parch,Fare
+  ma_palette = sns.light_palette("seagreen", 4)
   fig, ax = plt.subplots()
   df2 = df[["Survived","Pclass","Sex","Age","SibSp","Parch","Fare"]]
   df2['Sex'] = df2['Sex'].replace({'male': 1, 'female': 0})
-  sns.heatmap(df2.corr(), ax=ax)
+  sns.heatmap(df2.corr(), annot=True,cmap=ma_palette, ax=ax)
   st.write(fig)
-    
-  # fig = plt.figure()
-  # sns.heatmap(df.corr())
-  # plt.title("Matrice de corrélation")
-  # st.pyplot(fig)
 
 if page == pages[2] : 
   st.write("### Modélisation")
