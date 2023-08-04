@@ -62,7 +62,7 @@ if page == pages[1] :
   plt.title("Survie en fonction de l'âge et de la classe")
   st.pyplot(fig)
 
-  Survived,Pclass,Sex,Age,SibSp,Parch,Fare
+  # Survived,Pclass,Sex,Age,SibSp,Parch,Fare
   fig, ax = plt.subplots()
   df2 = df[["Survived","Pclass","Sex","Age","SibSp","Parch","Fare"]
   df2['Sex'] = df2['Sex'].replace({'male': 1, 'female': 0})
