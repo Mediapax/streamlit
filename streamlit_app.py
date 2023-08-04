@@ -67,6 +67,7 @@ if page == pages[1] :
   df2 = df[["Survived","Pclass","Sex","Age","SibSp","Parch","Fare"]]
   df2['Sex'] = df2['Sex'].replace({'male': 1, 'female': 0})
   sns.heatmap(df2.corr(), annot=True,cmap=ma_palette, ax=ax)
+  plt.title("Matrice de corrélation")
   st.write(fig)
 
 if page == pages[2] : 
