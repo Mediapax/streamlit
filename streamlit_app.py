@@ -62,7 +62,8 @@ if page == pages[1] :
   plt.title("Survie en fonction de l'âge et de la classe")
   st.pyplot(fig)
 
-  fig = sns.heatmap(df.corr())
+  fig = plt.figure()
+  sns.heatmap(df.corr())
   plt.title("Matrice de corrélation")
   st.pyplot(fig)
 
