@@ -7,4 +7,4 @@ from displayBackground import displayBackground
 
 def multiClasses():
     displayBackground("#000000","#FFFFFF")
-    st.title("Multi-classes")
+    st.header("Multi-classes")

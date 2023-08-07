@@ -19,7 +19,7 @@ def main():
         ("Présentation du projet", 
          "Etude du jeu de Données", 
          "Techniques de Machine Learning", 
-         "Choisissez votre modèle", 
+         "Construisez votre modèle", 
          "Kapy Predict : Va-t-il pleuvoir demain ?", 
          "Bilan et suite du projet" )
         )
@@ -30,7 +30,7 @@ def main():
         displayDataPreprocesssing()
     elif menuMain == "Techniques de Machine Learning":
         displayClassifiersStudy()
-    elif menuMain == "Choisissez votre modèle":
+    elif menuMain == "Construisez votre modèle":
         displayRealTimeModeling()
     elif menuMain == "Kapy Predict : Va-t-il pleuvoir demain ?":
         displayKapyPredict()

@@ -7,4 +7,4 @@ from displayBackground import displayBackground
 
 def seriesTemporelles():
     displayBackground("#000000","#FFFFFF")
-    st.title("Séries Temporelles")
+    st.header("Séries Temporelles")
