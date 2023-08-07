@@ -5,8 +5,7 @@ from displayClassifiersStudy import displayClassifiersStudy
 from displayRealTimeModeling import displayRealTimeModeling
 from displayKapyPredict import displayKapyPredict
 from displayBranchingOut import displayBranchingOut
-from displayProjectBranchingIn import displayProjectBranchingIn
-from displayBackground import displayBackground
+import displayProjectBranchingIn as displayProjectBranchingIn
 
 from resizeImage import resizeImage, loadImage
 
@@ -18,17 +17,25 @@ def main():
         "Menu ", 
         ("Présentation du projet", 
          "Etude du jeu de Données", 
-         "Techniques de Machine Learning", 
+         "Etude de divers 'Classifiers'", 
          "Choisissez votre modèle", 
          "Kapy Predict : Va-t-il pleuvoir demain ?", 
          "Bilan et suite du projet" )
         )
 
     if menuMain == "Présentation du projet":
-        displayProjectBranchingIn()
+        menuPresentation = st.sidebar.selectbox(
+        "", 
+        ("Introduction", 
+         "Contextualisation")
+        )
+        if menuPresentation == "Introduction":
+            displayProjectBranchingIn.displayIntroduction()
+        elif menuPresentation == "Contextualisation":
+            displayProjectBranchingIn.displayContextualisation()
     if menuMain == "Etude du jeu de Données":
         displayDataPreprocesssing()
-    elif menuMain == "Techniques de Machine Learning":
+    elif menuMain == "Etude de divers 'Classifiers'":
         displayClassifiersStudy()
     elif menuMain == "Choisissez votre modèle":
         displayRealTimeModeling()
@@ -36,8 +43,6 @@ def main():
         displayKapyPredict()
     elif menuMain == "Bilan et suite du projet":
         displayBranchingOut()
-
-    displayBackground("#000000","#FFFFFF")
 
 if __name__ == "__main__":
     main()
