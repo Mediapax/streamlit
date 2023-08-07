@@ -95,21 +95,21 @@ def explorationDesDonnees():
         st.write("-	La plupart des précipitation sont assez faible (<10mm) mais nous observons aussi des valeurs extrêmes très élevées (jusqu’à >300mm)")
         st.write("-	Il y a une saisonnalité dans la quantité de précipitation tout au long de l’année.")
 
-        st.image(loadImage(".\explorationDesDonnees\DistributionDesPrecipitations.jpg",1200))
+        st.image(loadImage("./explorationDesDonnees/DistributionDesPrecipitations.jpg",1200))
         st.write("")
-        st.image(loadImage(".\explorationDesDonnees\DistributionTemporelleDesPrecipitations1.jpg",1200))
+        st.image(loadImage("./explorationDesDonnees/DistributionTemporelleDesPrecipitations1.jpg",1200))
         st.write("")
-        st.image(loadImage(".\explorationDesDonnees\DistributionTemporelleDesPrecipitations2.jpg",1200))
+        st.image(loadImage("./explorationDesDonnees/DistributionTemporelleDesPrecipitations2.jpg",1200))
 
         st.write("")
     with st.expander("**Lieux d’observations:**"):
         st.write("Les différents lieux d’observation couvrent toutes la surface de l’Australie; qui compte plusieurs climat très différents")
         st.write("La majorité des lieux d’observation est concentrée sur la région sud-est. Certaines stations sont très isolées.")
         st.write("")
-        st.image(loadImage(".\explorationDesDonnees\ProportionDesJoursAvecPluie.jpg",1200))
+        st.image(loadImage("./explorationDesDonnees/ProportionDesJoursAvecPluie.jpg",1200))
 
     with st.expander("**Les lieux d’observations n’ont pas tous le même historique de relevés:**"):
-        st.image(loadImage(".\explorationDesDonnees\JoursObsDispoParVilleEtParDate.jpg",1200))
+        st.image(loadImage("./explorationDesDonnees/JoursObsDispoParVilleEtParDate.jpg",1200))
 
 
         st.write("**Valeurs manquantes**")
