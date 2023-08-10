@@ -45,7 +45,7 @@ def nouvellesVariablesEtAutresTraitements():
         st.write("A partir de la carte des climats, Nous rajoutons une information concernant le type de climat pour chaque station météorologique")
         st.write("- Données de climat : Données récupérées de Wikipedia")
         st.write("")
-        st.image(loadImage(".\explorationDesDonnees\CarteDesClimats.jpg",1200))
+        st.image(loadImage("./explorationDesDonnees/CarteDesClimats.jpg",1200))
         st.write("")
         # Affichage d'une carte interactive pour afficher le climat pour chaque ville du jeu de données
 
