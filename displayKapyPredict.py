@@ -69,3 +69,14 @@ def displayKapyPredict():
     
     st.write('% de chance de pluie le lendemain: ', np.round(kapy_acc_score(y_new)*100,2)) 
     #-----------------Fin de la prédiction avec la regression-----------------#
+
+    
+    #-----------------Prédiction n°2-----------------#
+    # mettre le code ici
+    
+    #-----------------Fin de la Prédiction n°2-----------------#
+    
+    #-----------------Prédiction n°3-----------------#
+    # mettre le code ici
+    
+    #-----------------Fin de la Prédiction n°3-----------------#
