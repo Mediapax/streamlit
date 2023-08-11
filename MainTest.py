@@ -11,7 +11,7 @@ def main():
 
     menuMain = st.sidebar.radio(
         "Menu ", 
-        ("Bokeh")
+        ("Bokeh",)
         )
 
     if menuMain == "Bokeh":
