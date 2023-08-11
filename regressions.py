@@ -18,7 +18,6 @@ filename_path = './models/'
 def regressions():
     
     st.header("Régressions")
-    st.write('blabla')
 
     #-----------------------------------------------------#
     # Lecture des données
