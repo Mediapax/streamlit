@@ -2,8 +2,10 @@ import streamlit as st
 
 from displayProjectBokeh import displayProjectBokeh
 from resizeImage import resizeImage, loadImage
+from displayBackground import displayBackground
 
 def main():
+    displayBackground("#000000","#FFFFFF")
     st.sidebar.image(loadImage("logo_datascientest.png",200))
     st.sidebar.title("TESTS")
 
@@ -14,8 +16,6 @@ def main():
 
     if menuMain == "Bokeh":
         displayProjectBokeh()
-
-    displayBackground("#000000","#FFFFFF")
 
 if __name__ == "__main__":
     main()
