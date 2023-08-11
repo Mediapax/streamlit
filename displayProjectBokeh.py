@@ -9,7 +9,7 @@ from PIL import Image
 from displayBackground import displayBackground
 from bokeh.models import ColumnDataSource, GeoJSONDataSource, HoverTool
 from bokeh.plotting import figure, show
-from bokeh.models.widgets import Panel, Tabs
+# from bokeh.models.widgets import Panel, Tabs
 from bokeh.layouts import row
 from datetime import datetime, timezone, timedelta
 from sklearn.metrics import confusion_matrix, classification_report
@@ -90,14 +90,14 @@ def displayProjectBokeh():
         p1.add_tools(etiquetteville1)
 
         # Titre onglet
-        ongletcarte = Panel(child=p1, title="Carte de l'Australie avec les lieux d'observations météorologiques et les climats associés")
+        #ongletcarte = Panel(child=p1, title="Carte de l'Australie avec les lieux d'observations météorologiques et les climats associés")
 
         # liste des onglets
-        groupe_onglets1 = Tabs(tabs=[ongletcarte])
+        #groupe_onglets1 = Tabs(tabs=[ongletcarte])
 
         # layout global, en ligne
-        layout = row(groupe_onglets1)
-        st.bokeh_chart(layout)
+        # layout = row(groupe_onglets1)
+        st.bokeh_chart(p1)
         
 
 
