@@ -21,8 +21,7 @@ def regressions():
 
     #-----------------------------------------------------#
     # Lecture des données
-    #df = pd.read_csv('https://raw.githubusercontent.com/ArnoMac/weatherAUS/main/weatherAUS_Kapy_v2.csv', index_col=0)
-    df = pd.read_csv('./weatherAUS_Kapy_v2.csv', index_col=0)
+    df = pd.read_csv('https://raw.githubusercontent.com/ArnoMac/weatherAUS/main/weatherAUS_Kapy_v2.csv', index_col=0)
     
     # Création de Rainfall_T qui correspond à un équivalent de Rainfall for tomorrow
     df = df.set_index(['Location', 'Date'])
