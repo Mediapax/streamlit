@@ -63,6 +63,7 @@ def displayKapyPredict():
                 y += -0.32348398974721754 * 1/ (x ** 3)
                 y += 0.02237893370342592 * 1/ (x ** 4)
             y = max(0, y)
+            y = min(y, 1)
             return y
         
         # prédiction
