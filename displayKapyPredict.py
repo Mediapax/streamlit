@@ -47,8 +47,8 @@ def displayKapyPredict():
         
         # récupération du modèle
         pipe = load('models/linreg.joblib')
-        st.write('Le type de modèle utilisé:')
-        st.write(pipe.named_steps)
+        st.markdown('**Modèle utilisé:**')
+        st.markdown("`PolynomialFeatures(3)`+`LinearRegression`")
         
         # fonction de prédiction de la précision
         def kapy_acc_score(x):
