@@ -45,7 +45,6 @@ def displayKapyPredict():
     
     # récupération du modèle
     pipe = load('models/linreg.joblib')
-    y_test_pred = pipe.predict(X_test_reduced)
     st.write('Le type de modèle utilisé:')
     st.write(pipe.named_steps)
     
