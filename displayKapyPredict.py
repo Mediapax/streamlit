@@ -17,6 +17,14 @@ def displayKapyPredict():
     st.write('Dans cette onglet, nous allons pouvoir prédire le risque de pluie du lendemain à partir des données météos des 2 jours précédents.')
     st.divider()
 
+    #--------Lecture des données-------#
+    df = pd.read_csv('https://raw.githubusercontent.com/ArnoMac/weatherAUS/main/weatherAUS_Kapy_v2.csv', index_col=0)
+        
+    #--------Sélection d'un jeu de colonne réduit-------#
+    columns_selection=['Rainfall', 'WindGustSpeed', 'Temp9am', 'diffTempMinMax', 'diffWind3pm9am',
+           'diffPressure9am3pm', 'Pressure', 'DeltaP_1d',
+           'diffHimidity9am3pm', 'Humidity', 'DeltaH_1d']
+    
     # Reporter les dernières données météos
     st.subheader('Reporter vos dernières données météos:')
     cols = st.columns(4)
