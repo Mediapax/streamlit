@@ -18,6 +18,7 @@ filename_path = './models/'
 def regressions():
     displayBackground("#000000","#FFFFFF")
     st.header("Régressions")
+    st.write('blabla')
 
     #-----------------------------------------------------#
     # Lecture des données
