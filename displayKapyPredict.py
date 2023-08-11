@@ -33,7 +33,7 @@ def displayKapyPredict():
     
     for c in columns_selection:
         with cols[i//3]:
-            values[c] = st.number_input(c, value=df[c].median(), min_value=df[c].min(), max_value=df[c].max(), step=(df[c].std()/10))
+            values[c] = st.slider(c, value=df[c].median(), min_value=df[c].min(), max_value=df[c].max())
             i += 1
     st.divider()
     
