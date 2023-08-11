@@ -4,7 +4,7 @@ numpy
 matplotlib
 seaborn
 scikit-learn
-bokeh
+bokeh==3.2.1
 keras
 tensorflow
-geopandas==3.2.1
+geopandas
