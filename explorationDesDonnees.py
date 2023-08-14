@@ -141,7 +141,7 @@ def explorationDesDonnees():
         st.write("")
         st.write("On observe que les variations de certaines valeurs physiques (pression, température, humidité)"\
                  " sur quelques jours semblent indiquer l’apparition de précipitations:")
-        st.image(loadImage("./explorationDesDonnees.VariationVarCorrelCible.jpg",1200))
+        st.image(loadImage("./explorationDesDonnees/VariationVarCorrelCible.jpg",1200))
         st.write("")
         st.write("La direction du vent semble favoriser (ou non) l’apparition de pluie:")
         st.image(loadImage("./explorationDesDonnees/ProbabilitePluieEnFctDuVent.jpg",1200))
