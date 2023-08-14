@@ -10,6 +10,7 @@ from PIL import Image
 from displayBackground import displayBackground
 
 def nouvellesVariables() :
+    chemin = ".\explorationDesDonnees\\"
     displayBackground("#000000","#FFFFFF")
     st.title("Création de nouvelles variables")
     st.write("")
@@ -52,11 +53,11 @@ def nouvellesVariables() :
 
     with st.expander("**Analyses de données pour la création de 'diffTempMinMax'**"):
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/diffTemp1.jpg",1200))
+        st.image(loadImage(chemin+"diffTemp1.jpg",1200))
         st.write("")
 
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/diffTemp2.jpg",1200))
+        st.image(loadImage(chemin+"diffTemp2.jpg",1200))
         st.write("")
 
         st.write("Le graphique ci-dessus suggère que :")
@@ -66,7 +67,7 @@ def nouvellesVariables() :
         st.write("")
 
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/diffTempMatCorr.png",1200))
+        st.image(loadImage(chemin+"diffTempMatCorr.png",1200))
         st.write("")
 
         st.write("A la vue de la matrice de corrélation ci-dessus, il semble pertinent de conserver 2 variables très peu corrélées"\
@@ -74,7 +75,7 @@ def nouvellesVariables() :
         st.write("")
 
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/diffTempNuagePoints.png",1200))
+        st.image(loadImage(chemin+"diffTempNuagePoints.png",1200))
         st.write("")
 
         st.write("Le nuage de point semble confirmer un impact des couples Temp9am/diffTempMinMax sur la variable cible.")
@@ -86,13 +87,13 @@ def nouvellesVariables() :
         st.write("Le jeu de données contient 3 variables de températures très corrélées: WindGustSpeed, WindSpeed9am, WindSpeed3pm.")
 
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/wind1.jpg",1200))
+        st.image(loadImage(chemin+"wind1.jpg",1200))
         st.write("")
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/wind2.jpg",1200))
+        st.image(loadImage(chemin+"wind2.jpg",1200))
         st.write("")
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/wind3.jpg",1200))
+        st.image(loadImage(chemin+"wind3.jpg",1200))
         st.write("")
 
         st.write("- WindSpeed9am vs 3pm : les vents à 9am et 3pm ne semblent pas tellement corrélés à la variable cible")
@@ -101,7 +102,7 @@ def nouvellesVariables() :
         
         # Affichage de la corrélation entre les variables de vitesses de vents
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/wind4MatCorr.png",1200))
+        st.image(loadImage(chemin+"wind4MatCorr.png",1200))
         st.write("")
 
         st.write("Ceci tend à dire qu'il faut conserver WindGustSpeed associée à WindSpeed 9am ou 3pm. Pour aller plus loin,"\
@@ -114,14 +115,14 @@ def nouvellesVariables() :
         st.write("Le jeu de données contient 2 variables de pression atmosphérique très corrélées: Pressure9am, Pressure3pm.")
 
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/Pression1.png",1200))
+        st.image(loadImage(chemin+"Pression1.png",1200))
         st.write("")
 
         st.write("On ne voit pas de tendance intra-day claire comme avec les températures ou la vitesse du vent.")
 
         # Affichage de la corrélation entre les variables de pressions
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/Pression2MatCorr.png",1200))
+        st.image(loadImage(chemin+"Pression2MatCorr.png",1200))
         st.write("")
 
         st.write("")
@@ -131,7 +132,7 @@ def nouvellesVariables() :
                  " L'ensemble sera enregistré dans une nouvelle colonne 'Pressure'.")
 
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/PressionDiagViolin.png",1200))
+        st.image(loadImage(chemin+"PressionDiagViolin.png",1200))
         st.write("")
 
         st.write("A la vue des violinplot et des valeurs numériques de moyennes, on tend à observer que la différence de pression sur les 3 derniers"\
@@ -142,7 +143,7 @@ def nouvellesVariables() :
 
     with st.expander("**Analyses de données pour la création des variables basées sur les 'différences d'humidité'**"):
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/DiffHumiditeMatCorr.png",1200))
+        st.image(loadImage(chemin+"DiffHumiditeMatCorr.png",1200))
         st.write("")
         
         st.write("Une variable intra-day sur Humidity semble intéressante car relativement peu corrélé aux autres variables. De la même manière"\
@@ -152,7 +153,7 @@ def nouvellesVariables() :
                  "lorsque pour remplir les NaN. L'ensemble sera enregistré dans une nouvelle colonne Humidity.")
 
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/HumiditeDiagViolin.png",1200))
+        st.image(loadImage(chemin+"HumiditeDiagViolin.png",1200))
         st.write("")
 
         st.write("")
@@ -174,7 +175,7 @@ def nouvellesVariables() :
                  " du vent devrait donc a priori apporter une information supplémentaire.")
         
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/FreqJoursPluieDarwin.png",1200))
+        st.image(loadImage(chemin+"FreqJoursPluieDarwin.png",1200))
         st.write("")
         
         st.write("On peut noter une forte influence de la direction du vent sur la probabilité de pluie le lendemain."\
@@ -189,7 +190,7 @@ def nouvellesVariables() :
         st.write("Ajout du nombre de jours de pluie consécutif pour chaque ligne.")
 
         st.write("")
-        st.image(loadImage("./explorationDesDonnees/DistribJoursPluieConsecutifs.png",1200))
+        st.image(loadImage(chemin+"DistribJoursPluieConsecutifs.png",1200))
         st.write("")
         
         st.write("On observe une décroissance exponentielle. Il y a peu de chance que le nombre de jours consécutif ait une"\
