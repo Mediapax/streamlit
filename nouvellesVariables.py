@@ -10,7 +10,7 @@ from PIL import Image
 from displayBackground import displayBackground
 
 def nouvellesVariables() :
-    chemin = ".\explorationDesDonnees\\"
+    chemin = "./explorationDesDonnees/"
     displayBackground("#000000","#FFFFFF")
     st.title("Création de nouvelles variables")
     st.write("")
