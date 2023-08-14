@@ -12,7 +12,7 @@ def displayProjectBranchingIn() :
     st.title("Prévision météo en Australie")
     image_de_titre = loadImage("Uluru at sunset with four silhouettes with KAPY.png", 600)
     st.image(image_de_titre)
-    st.caption("@Credits DALL-E 'Fours silhouettes looking at Uluru rock at sunset with rain and KAPY'")
+    st.caption("@Credits DALL-E 'Four silhouettes looking at Uluru rock at sunset with rain'")
     st.write("")
     st.markdown("Le nom de notre projet est :red[**‘KaPy’**] en référence à :red[**‘Kapi’**] qui signifie :red[**‘eau’**] pour les Aborigènes et :red[**Python**]"\
                 " qui est le langage de programmation utilisé pour nos modélisations.")
