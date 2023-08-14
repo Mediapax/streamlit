@@ -6,7 +6,7 @@ from PIL import Image
 from displayBackground import displayBackground
 
 def explorationDesDonnees():
-    chemin = ".\explorationDesDonnees\\"
+    chemin = "./explorationDesDonnees/"
     displayBackground("#000000","#FFFFFF")
     st.title("Exploration des données")
     st.write("")
