@@ -25,5 +25,5 @@ def climatEtGeographie():
     st.write("-	Wikipedia pour les types de climat de chaque ville en Australie:")
     st.write("https://en.wikipedia.org/wiki/Climate_of_Australia")
     st.write("")
-    st.image(loadImage(".\explorationDesDonnees\CarteDesClimats.jpg",1200))
+    st.image(loadImage("./explorationDesDonnees/CarteDesClimats.jpg",1200))
     st.write("")
