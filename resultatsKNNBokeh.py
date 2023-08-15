@@ -28,7 +28,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
 
     # chargement des données
-    chemin_local = ".\\techniquesML\knn\\"
+    chemin_local = "./techniquesML/knn/"
 
     #accuracy
     path = chemin_local+faccuracy
