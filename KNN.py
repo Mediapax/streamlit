@@ -8,7 +8,7 @@ from resultatsKNNBokeh import resultatsKNNBokeh
 
 def KNN():
 
-    chemin = ".\\techniquesML\\"
+    chemin = "./techniquesML/"
     displayBackground("#000000","#FFFFFF")
     st.header("KNeighborsClassifier")
     st.write("")
