@@ -14,7 +14,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     import warnings
 
     from bokeh.util.warnings import BokehUserWarning
-    from bokeh.models import TabPanel, Tabs
+    from bokeh.models import Panel, Tabs
     from bokeh.models import ColumnDataSource
     from bokeh.models.tools import HoverTool,LassoSelectTool
     from bokeh.models.ranges import DataRange1d
@@ -138,7 +138,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
     p1.add_layout(legend1, 'right')
 
-    tab1 = TabPanel(child=p1, title="Accuracy")
+    tab1 = Panel(child=p1, title="Accuracy")
 
     ##################### Precision
     p2 = figure(width=800, height=600,x_axis_label='k', y_axis_label='valeur',title="Precision",
@@ -171,7 +171,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
     p2.add_layout(legend2, 'right')
 
-    tab2 = TabPanel(child=p2, title="Precision")
+    tab2 = Panel(child=p2, title="Precision")
 
     # ##################### Recall
     p3 = figure(width=800, height=600,x_axis_label='k', y_axis_label='valeur',title="Recall",
@@ -204,7 +204,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
     p3.add_layout(legend3, 'right')
 
-    tab3 = TabPanel(child=p3, title="Recall")
+    tab3 = Panel(child=p3, title="Recall")
 
     # ##################### F1-Score
     p4 = figure(width=800, height=600,x_axis_label='k', y_axis_label='valeur',title="F1-Score",
@@ -237,7 +237,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
     p4.add_layout(legend4, 'right')
 
-    tab4 = TabPanel(child=p4, title="F1-Score")
+    tab4 = Panel(child=p4, title="F1-Score")
 
     # ##################### Specificity
     p5 = figure(width=800, height=600,x_axis_label='k', y_axis_label='valeur',title="Specificity",
@@ -270,7 +270,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
     p5.add_layout(legend5, 'right')
 
-    tab5 = TabPanel(child=p5, title="Specificity")
+    tab5 = Panel(child=p5, title="Specificity")
 
     # ##################### Accuracy en fct du F1-Score
 
@@ -322,7 +322,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
     p6.add_tools(hover6)
 
-    tab6 = TabPanel(child=p6, title="Accuracy en fct du F1-Score")
+    tab6 = Panel(child=p6, title="Accuracy en fct du F1-Score")
 
     # ##################### Affichages
 
