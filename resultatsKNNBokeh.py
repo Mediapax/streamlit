@@ -1,6 +1,6 @@
 # resultatsKNNBokeh
 
-def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, metricsUtilisees,nbVoisinsMax):
+def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, metricsUtilisees, nbVoisinsMax, poids, couleurs):
     import streamlit as st
 
     from resizeImage import resizeImage, loadImage
@@ -83,11 +83,12 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     params['nb_voisins'] = np.arange(2,nbVoisinsMax,1)
     params['metric'] = metricsUtilisees # ['l1','l2','manhattan','nan_euclidean','minkowski','chebyshev','cityblock','cosine','euclidean']
     # 'haversine' ==> valide seulement en 2D
-    params['weights'] = ['uniform','distance']
+    params['weights'] = poids # ['uniform','distance']
         
-    mes_couleurs = ['magenta','maroon','mediumaquamarine','mediumblue','mediumorchid','mediumpurple','mediumseagreen',
-                    'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
-                    'goldenrod','navy','grey','darksalmon','red']
+    mes_couleurs = couleurs 
+    # ['magenta','maroon','mediumaquamarine','mediumblue','mediumorchid','mediumpurple','mediumseagreen',
+    #                'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
+    #                'goldenrod','navy','grey','darksalmon','red']
     # 9 metrics & 2 weights = 18 curves = 18 colors
     # https://docs.bokeh.org/en/2.4.2/docs/reference/colors.html#bokeh-colors-named
 
