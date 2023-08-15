@@ -108,7 +108,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     tools=[HoverTool(),BoxZoomTool(), PanTool(),ResetTool()]
 
     ##################### Accuracy
-    p1 = figure(width=800, height=600, x_axis_label='k', y_axis_label='valeur',title="Accuracy",
+    p1 = figure(plot_width=800, plot_height=600, x_axis_label='k', y_axis_label='valeur',title="Accuracy",
             toolbar_location = "below",
             tooltips = tt1,tools = tools)
 
@@ -142,7 +142,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     tab1 = Panel(child=p1, title="Accuracy")
 
     ##################### Precision
-    p2 = figure(width=800, height=600,x_axis_label='k', y_axis_label='valeur',title="Precision",
+    p2 = figure(plot_width=800, plot_height=600,x_axis_label='k', y_axis_label='valeur',title="Precision",
                 x_range = p1.x_range,
                 toolbar_location = "below",
                 tooltips = tt1,tools = tools)
@@ -175,7 +175,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     tab2 = Panel(child=p2, title="Precision")
 
     # ##################### Recall
-    p3 = figure(width=800, height=600,x_axis_label='k', y_axis_label='valeur',title="Recall",
+    p3 = figure(plot_width=800, plot_height=600,x_axis_label='k', y_axis_label='valeur',title="Recall",
                 x_range = p1.x_range,
                 toolbar_location = "below",
                 tooltips = tt1,tools = tools)
@@ -208,7 +208,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     tab3 = Panel(child=p3, title="Recall")
 
     # ##################### F1-Score
-    p4 = figure(width=800, height=600,x_axis_label='k', y_axis_label='valeur',title="F1-Score",
+    p4 = figure(plot_width=800, plot_height=600,x_axis_label='k', y_axis_label='valeur',title="F1-Score",
                 x_range = p1.x_range,
                 toolbar_location = "below",
             tooltips = tt1,tools = tools)
@@ -241,7 +241,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     tab4 = Panel(child=p4, title="F1-Score")
 
     # ##################### Specificity
-    p5 = figure(width=800, height=600,x_axis_label='k', y_axis_label='valeur',title="Specificity",
+    p5 = figure(plot_width=800, plot_height=600,x_axis_label='k', y_axis_label='valeur',title="Specificity",
                 x_range = p1.x_range,
                 toolbar_location = "below",
             tooltips = tt1,tools = tools)
@@ -275,7 +275,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
     # ##################### Accuracy en fct du F1-Score
 
-    p6 = figure(width=800, height=600,x_axis_label='F1-Score', y_axis_label='Accuracy',
+    p6 = figure(plot_width=800, plot_height=600,x_axis_label='F1-Score', y_axis_label='Accuracy',
     #             title="Accuracy en fct du F1-Score",
                 toolbar_location = "below",
             x_range = DataRange1d(bounds='auto'),
