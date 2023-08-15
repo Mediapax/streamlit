@@ -7,7 +7,7 @@ from displayBackground import displayBackground
 
 def modelesNaifs():
 
-    chemin = ".\\techniquesML\\"
+    chemin = "./techniquesML/"
     displayBackground("#000000","#FFFFFF")
     st.header("Modèles Naïfs")
 
