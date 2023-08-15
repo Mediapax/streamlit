@@ -5,6 +5,7 @@ from resizeImage import resizeImage, loadImage
 from PIL import Image
 from displayBackground import displayBackground
 from resultatsKNNBokeh import resultatsKNNBokeh
+from displayCartoBokeh import displayCartoBokeh
 
 # fichier : KNN Simulations en faisant varier les principaux parametres.ipynb
 # indicateurs : _v1.0.csv ==> 'accuracy_v1.0.csv', 'precision_v1.0.csv', 'recall_v1.0.csv', 'f1score_v1.0.csv', 'specificity_v1.0.csv'
@@ -15,3 +16,9 @@ couleurs = ['magenta','maroon','mediumaquamarine','mediumblue','mediumorchid','m
             'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
             'goldenrod','navy','grey','darksalmon','red']
 resultatsKNNBokeh("accuracy_v1.0.csv", "precision_v1.0.csv", "recall_v1.0.csv", "f1score_v1.0.csv", "specificity_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+
+
+st.write("Et maintenant : Une carte avec les emplacements des diverses stations météoroogiques")
+st.write("")
+st.write("")
+displayCartoBokeh()
