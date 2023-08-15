@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from resizeImage import resizeImage, loadImage
 from PIL import Image
 from displayBackground import displayBackground
+from displayCartoBokeh import displayCartoBokeh
 
 def climatEtGeographie():
     displayBackground("#000000","#FFFFFF")
@@ -27,3 +28,6 @@ def climatEtGeographie():
     st.write("")
     st.image(loadImage("./explorationDesDonnees/CarteDesClimats.jpg",1200))
     st.write("")
+    st.write("")
+    st.write("Ceci nous permet alors de disposer des informations de position géographique et de climat des différentes stations météorologiques")
+    displayCartoBokeh()
