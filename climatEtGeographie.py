@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from resizeImage import resizeImage, loadImage
 from PIL import Image
 from displayBackground import displayBackground
-# from displayCartoBokeh import displayCartoBokeh
+from displayCartoBokeh import displayCartoBokeh
 
 def climatEtGeographie():
     displayBackground("#000000","#FFFFFF")
@@ -26,7 +26,7 @@ def climatEtGeographie():
     st.write("-	Wikipedia pour les types de climat de chaque ville en Australie:")
     st.write("https://en.wikipedia.org/wiki/Climate_of_Australia")
     st.write("")
-    st.image(loadImage(".\explorationDesDonnees\CarteDesClimats.jpg",1200))
+    st.image(loadImage("./explorationDesDonnees/CarteDesClimats.jpg",1200))
     st.write("")
     st.write("Ceci nous permet alors de disposer des informations de position géographique et de climat des différentes stations météorologiques")
-    # displayCartoBokeh()
+    displayCartoBokeh()
