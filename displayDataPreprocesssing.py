@@ -9,7 +9,6 @@ from climatEtGeographie import climatEtGeographie
 from nans import nans
 from nouvellesVariables import nouvellesVariables
 from fichierDefinitif import fichierDefinitif
-from nouvellesVariablesEtAutresTraitements import nouvellesVariablesEtAutresTraitements
 
 
 def displayDataPreprocesssing():
