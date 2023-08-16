@@ -491,7 +491,7 @@ def KNN():
             st.write("Enfin, cette fonction personnalisée n’a pas besoin d’être un calcul de distance. Par contre elle doit prendre en entrée"\
                      " un échantillon du jeu de test et un échantillon du jeu d'entraînement et renvoie un scalaire")
             st.write("")
-            st.write("**Autres usages d’une fonction personnalisée : **")
+            st.write("**Autres usages d’une fonction personnalisée :**")
             st.write("Dans le cadre de Kapy, l’usage de ce classifier avec une fonction personnalisée n’est pas adapté. Par contre on peut imaginer d’autres cas où"\
                      " cette fonction pourrait être utilisée. En recherchant dans la littérature, nous avons trouvé ces deux autres exemples :")
             st.write("")
