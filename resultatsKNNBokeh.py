@@ -28,7 +28,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
 
     # chargement des données
-    chemin_local = ".\\techniquesML\knn\\"
+    chemin_local = "./techniquesML/knn/"
 
     #accuracy
     path = chemin_local+faccuracy
@@ -56,26 +56,26 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     f1score_v1["evaluateur"] = "f1score_v1"
     specificity_v1["evaluateur"] = "specificity_v1"
 
-    st.write(accuracy_v1.head(15))
-    st.write("")
+    #st.write(accuracy_v1.head(15))
+    #st.write("")
 
-    st.write(precision_v1.head(15))
-    st.write("")
+    #st.write(precision_v1.head(15))
+    #st.write("")
 
-    st.write(recall_v1.head(15))
-    st.write("")
+    #st.write(recall_v1.head(15))
+    #st.write("")
 
-    st.write(f1score_v1.head(15))
-    st.write("")
+    #st.write(f1score_v1.head(15))
+    #st.write("")
 
-    st.write(specificity_v1.head(15))
-    st.write("")
+    #st.write(specificity_v1.head(15))
+    #st.write("")
 
-    st.write(metricsUtilisees)
-    st.write("")
+    #st.write(metricsUtilisees)
+    #st.write("")
 
-    st.write(str(nbVoisinsMax))
-    st.write("")
+    #st.write(str(nbVoisinsMax))
+    #st.write("")
 
 
     # affichage des données avec Bokeh
