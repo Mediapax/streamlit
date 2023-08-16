@@ -168,7 +168,7 @@ def nouvellesVariables() :
                  " ultérieurement les colonnes les plus importantes.")
 
 
-    with st.expander("Analyses de données pour la création des variables 'WindDirInfluence' et ''consecutiveRainingDays'**"):
+    with st.expander("**Analyses de données pour la création des variables 'WindDirInfluence' et ''consecutiveRainingDays'**"):
         st.write("")
         st.write("Influence de la direction du vent")
         st.write("Un vent venant de la mer apporte plus d'humidité qu'un vent venant des terres. La direction"\
