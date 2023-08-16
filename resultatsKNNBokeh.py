@@ -1,6 +1,6 @@
 # resultatsKNNBokeh
 
-def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, metricsUtilisees, nbVoisinsMax, poids, couleurs):
+def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, metricsUtilisees,nbVoisinsMax, poids, couleurs):
     import streamlit as st
 
     from resizeImage import resizeImage, loadImage
@@ -28,7 +28,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
 
     # chargement des données
-    chemin_local = "./techniquesML/knn/"
+    chemin_local = ".\\techniquesML\knn\\"
 
     #accuracy
     path = chemin_local+faccuracy
@@ -56,26 +56,26 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     f1score_v1["evaluateur"] = "f1score_v1"
     specificity_v1["evaluateur"] = "specificity_v1"
 
-    #st.write(accuracy_v1.head(15))
-    #st.write("")
+    st.write(accuracy_v1.head(15))
+    st.write("")
 
-    #st.write(precision_v1.head(15))
-    #st.write("")
+    st.write(precision_v1.head(15))
+    st.write("")
 
-    #st.write(recall_v1.head(15))
-    #st.write("")
+    st.write(recall_v1.head(15))
+    st.write("")
 
-    #st.write(f1score_v1.head(15))
-    #st.write("")
+    st.write(f1score_v1.head(15))
+    st.write("")
 
-    #st.write(specificity_v1.head(15))
-    #st.write("")
+    st.write(specificity_v1.head(15))
+    st.write("")
 
-    #st.write(metricsUtilisees)
-    #st.write("")
+    st.write(metricsUtilisees)
+    st.write("")
 
-    #st.write(str(nbVoisinsMax))
-    #st.write("")
+    st.write(str(nbVoisinsMax))
+    st.write("")
 
 
     # affichage des données avec Bokeh
@@ -85,10 +85,9 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     # 'haversine' ==> valide seulement en 2D
     params['weights'] = poids # ['uniform','distance']
         
-    mes_couleurs = couleurs 
-    # ['magenta','maroon','mediumaquamarine','mediumblue','mediumorchid','mediumpurple','mediumseagreen',
-    #                'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
-    #                'goldenrod','navy','grey','darksalmon','red']
+    mes_couleurs = couleurs # ['magenta','maroon','mediumaquamarine','mediumblue','mediumorchid','mediumpurple','mediumseagreen',
+                   # 'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
+                   # 'goldenrod','navy','grey','darksalmon','red']
     # 9 metrics & 2 weights = 18 curves = 18 colors
     # https://docs.bokeh.org/en/2.4.2/docs/reference/colors.html#bokeh-colors-named
 
@@ -108,7 +107,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     tools=[HoverTool(),BoxZoomTool(), PanTool(),ResetTool()]
 
     ##################### Accuracy
-    p1 = figure(plot_width=800, plot_height=600, x_axis_label='k', y_axis_label='valeur',title="Accuracy",
+    p1 = figure(width=800, height=800, x_axis_label='k', y_axis_label='valeur',title="Accuracy",
             toolbar_location = "below",
             tooltips = tt1,tools = tools)
 
@@ -142,7 +141,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     tab1 = Panel(child=p1, title="Accuracy")
 
     ##################### Precision
-    p2 = figure(plot_width=800, plot_height=600,x_axis_label='k', y_axis_label='valeur',title="Precision",
+    p2 = figure(width=800, height=800,x_axis_label='k', y_axis_label='valeur',title="Precision",
                 x_range = p1.x_range,
                 toolbar_location = "below",
                 tooltips = tt1,tools = tools)
@@ -175,7 +174,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     tab2 = Panel(child=p2, title="Precision")
 
     # ##################### Recall
-    p3 = figure(plot_width=800, plot_height=600,x_axis_label='k', y_axis_label='valeur',title="Recall",
+    p3 = figure(width=800, height=800,x_axis_label='k', y_axis_label='valeur',title="Recall",
                 x_range = p1.x_range,
                 toolbar_location = "below",
                 tooltips = tt1,tools = tools)
@@ -208,7 +207,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     tab3 = Panel(child=p3, title="Recall")
 
     # ##################### F1-Score
-    p4 = figure(plot_width=800, plot_height=600,x_axis_label='k', y_axis_label='valeur',title="F1-Score",
+    p4 = figure(width=800, height=800,x_axis_label='k', y_axis_label='valeur',title="F1-Score",
                 x_range = p1.x_range,
                 toolbar_location = "below",
             tooltips = tt1,tools = tools)
@@ -241,7 +240,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     tab4 = Panel(child=p4, title="F1-Score")
 
     # ##################### Specificity
-    p5 = figure(plot_width=800, plot_height=600,x_axis_label='k', y_axis_label='valeur',title="Specificity",
+    p5 = figure(width=800, height=800,x_axis_label='k', y_axis_label='valeur',title="Specificity",
                 x_range = p1.x_range,
                 toolbar_location = "below",
             tooltips = tt1,tools = tools)
@@ -275,7 +274,7 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
 
     # ##################### Accuracy en fct du F1-Score
 
-    p6 = figure(plot_width=800, plot_height=600,x_axis_label='F1-Score', y_axis_label='Accuracy',
+    p6 = figure(width=800, height=800,x_axis_label='F1-Score', y_axis_label='Accuracy',
     #             title="Accuracy en fct du F1-Score",
                 toolbar_location = "below",
             x_range = DataRange1d(bounds='auto'),
@@ -289,7 +288,32 @@ def resultatsKNNBokeh(faccuracy,fprecision, frecall, ff1score, fspecificity, met
     acc_f1['recall'] = recall_v1['valeur']
     acc_f1['specificity'] = specificity_v1['valeur']
 
-    acc_f1['id_couleur'] = round(17 * (acc_f1['accuracy'] * acc_f1['f1score']**2),0).astype(int)
+    # mettre des couleurs sur les points
+    def choixCouleur(a,b):
+        if (int(a) >= 0.86 and int(b) >= 0.65):
+            return 0
+        elif (a >= 0.855 and b >= 0.64):
+            return 1
+        elif (a >= 0.85 and b >= 0.63):
+            return 2
+        elif (a >= 0.845 and b >= 0.62):
+            return 3
+        elif (a >= 0.84 and b >= 0.61):
+            return 4
+        elif (a >= 0.835 and b >= 0.60):
+            return 5
+        elif (a >= 0.83 and b >= 0.59):
+            return 6
+        elif (a >= 0.81 and b >= 0.58):
+            return 7
+        elif (a >= 0.80 and b >= 0.55):
+            return 8
+        else :
+            return 9
+
+        
+    acc_f1['id_couleur'] = acc_f1.apply(lambda row: choixCouleur(row['accuracy'], row['f1score']), axis=1)
+    # acc_f1['id_couleur'] = round(30 * (acc_f1['accuracy'] * acc_f1['f1score']),0).astype(int)
     # couleurs arbitraires pour différencier :
     # les meilleurs compromis F1Score/Accuracy
     # les compromis moyens
