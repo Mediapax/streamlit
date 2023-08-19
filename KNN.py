@@ -682,7 +682,7 @@ def KNN():
         with tab2 :
             st.write("")
             st.write("PCA avec KNeighborsClassifier et Kapy")
-            st.write("**Pourquoi utiliser une PCA avec KNeighborsClassifier ?** La durée des traitements pour KNN peut être assez longue.En utilisant un ePCA sur"\
+            st.write("**Pourquoi utiliser une PCA avec KNeighborsClassifier ?** La durée des traitements pour KNN peut être assez longue.En utilisant une PCA sur"\
                      " KNN on pourra donc raccourcir d'autant la durée de traitement et tenter plus de scénarios de simulation.")
             st.write("Ensuite, la PCA modifie les variables physiques initiales en créant des composantes sans valeur physique. Ceci s’adapte bien à"\
                      " KNeighborsClassifier, car cet algorithme, en particulier avec la distance de Manhattan, compare entre elles"\
