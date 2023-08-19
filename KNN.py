@@ -4,11 +4,11 @@ import streamlit as st
 from resizeImage import resizeImage, loadImage
 from PIL import Image
 from displayBackground import displayBackground
-# from resultatsKNNBokeh import resultatsKNNBokeh
+from resultatsKNNBokeh import resultatsKNNBokeh
 
 def KNN():
 
-    chemin = ".\\techniquesML\\"
+    chemin = "./techniquesML/"
     displayBackground("#000000","#FFFFFF")
     st.header("KNeighborsClassifier")
     st.write("")
@@ -219,7 +219,7 @@ def KNN():
             couleurs = ['magenta','maroon','mediumaquamarine','mediumblue','mediumorchid','mediumpurple','mediumseagreen',
                         'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                         'goldenrod','navy','grey','darksalmon','red']
-            #resultatsKNNBokeh("accuracy_v1.0.csv", "precision_v1.0.csv", "recall_v1.0.csv", "f1score_v1.0.csv", "specificity_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+            resultatsKNNBokeh("accuracy_v1.0.csv", "precision_v1.0.csv", "recall_v1.0.csv", "f1score_v1.0.csv", "specificity_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
             st.write("")
 
         with tab3 :
@@ -566,7 +566,7 @@ def KNN():
             couleurs = ['magenta','maroon','mediumaquamarine','mediumblue','mediumorchid','mediumpurple','mediumseagreen',
                 'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                 'goldenrod','navy','grey','darksalmon','red']
-            #resultatsKNNBokeh("accuracy_weights_sqr_v1.0.csv", "precision_weights_sqr_v1.0.csv", "recall_weights_sqr_v1.0.csv", "f1score_weights_sqr_v1.0.csv", "specificity_weights_sqr_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+            resultatsKNNBokeh("accuracy_weights_sqr_v1.0.csv", "precision_weights_sqr_v1.0.csv", "recall_weights_sqr_v1.0.csv", "f1score_weights_sqr_v1.0.csv", "specificity_weights_sqr_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
             st.write("")
             st.write("Le meilleur compromis (f1-score, accuracy) est obtenu avec le couple (f1-score de 0.662, accuracy de 0.870) pour k= 8 et pour la"\
                      " fonction de pondération 'weights_sqr4'.")
@@ -632,7 +632,7 @@ def KNN():
                 'goldenrod','navy','grey','darksalmon','red','magenta','maroon','mediumaquamarine','mediumblue',
                 'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                 'goldenrod','navy','grey']
-            #resultatsKNNBokeh("accuracy_pond_var_inf_mut_v1.0.csv", "precision_pond_var_inf_mut_v1.0.csv", "recall_pond_var_inf_mut_v1.0.csv", "f1score_pond_var_inf_mut_v1.0.csv", "specificity_pond_var_inf_mut_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+            resultatsKNNBokeh("accuracy_pond_var_inf_mut_v1.0.csv", "precision_pond_var_inf_mut_v1.0.csv", "recall_pond_var_inf_mut_v1.0.csv", "f1score_pond_var_inf_mut_v1.0.csv", "specificity_pond_var_inf_mut_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
             st.write("")
             st.write("")
             resultPonIM = "<style>"\
@@ -756,7 +756,7 @@ def KNN():
             couleurs = ['magenta','maroon','mediumaquamarine','mediumblue','mediumorchid','mediumpurple','mediumseagreen',
                 'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                 'goldenrod','navy','grey','darksalmon','red']
-            #resultatsKNNBokeh("accuracy_PCA_12c_v1.0.csv", "precision_PCA_12c_v1.0.csv", "recall_PCA_12c_v1.0.csv", "f1score_PCA_12c_v1.0.csv", "specificity_PCA_12c_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+            resultatsKNNBokeh("accuracy_PCA_12c_v1.0.csv", "precision_PCA_12c_v1.0.csv", "recall_PCA_12c_v1.0.csv", "f1score_PCA_12c_v1.0.csv", "specificity_PCA_12c_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
             st.write("")
             st.write("")
             st.write("**2.	Simulation PCA sur les 28 composantes principales (sans pondération)**")
@@ -803,7 +803,7 @@ def KNN():
             couleurs = ['magenta','maroon','mediumaquamarine','mediumblue','mediumorchid','mediumpurple','mediumseagreen',
                 'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                 'goldenrod','navy','grey','darksalmon','red']
-            #resultatsKNNBokeh("accuracy_PCA_28c_v1.0.csv", "precision_PCA_28c_v1.0.csv", "recall_PCA_28c_v1.0.csv", "f1score_PCA_28c_v1.0.csv", "specificity_PCA_28c_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+            resultatsKNNBokeh("accuracy_PCA_28c_v1.0.csv", "precision_PCA_28c_v1.0.csv", "recall_PCA_28c_v1.0.csv", "f1score_PCA_28c_v1.0.csv", "specificity_PCA_28c_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
             st.write("")
             st.write("")
             st.write("**3.	Simulation PCA avec pondération sur les 28 composantes principales**")
@@ -849,7 +849,7 @@ def KNN():
                 'goldenrod','navy','grey','darksalmon','red','magenta','maroon','mediumaquamarine','mediumblue',
                 'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                 'goldenrod','navy','grey']
-            #resultatsKNNBokeh("accuracy_pond_PCA_28c_v1.0.csv", "precision_pond_PCA_28c_v1.0.csv", "recall_pond_PCA_28c_v1.0.csv", "f1score_pond_PCA_28c_v1.0.csv", "specificity_pond_PCA_28c_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+            resultatsKNNBokeh("accuracy_pond_PCA_28c_v1.0.csv", "precision_pond_PCA_28c_v1.0.csv", "recall_pond_PCA_28c_v1.0.csv", "f1score_pond_PCA_28c_v1.0.csv", "specificity_pond_PCA_28c_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
             st.write("")
             st.write("")
 
@@ -1015,7 +1015,7 @@ def KNN():
                 'goldenrod','navy','grey','darksalmon','red','magenta','maroon','mediumaquamarine','mediumblue',
                 'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                 'goldenrod','navy','grey']
-                #resultatsKNNBokeh("accuracy_kmeans_500s_500p_v1.0.csv", "precision_kmeans_500s_500p_v1.0.csv", "recall_kmeans_500s_500p_v1.0.csv", "f1score_kmeans_500s_500p_v1.0.csv", "specificity_kmeans_500s_500p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+                resultatsKNNBokeh("accuracy_kmeans_500s_500p_v1.0.csv", "precision_kmeans_500s_500p_v1.0.csv", "recall_kmeans_500s_500p_v1.0.csv", "f1score_kmeans_500s_500p_v1.0.csv", "specificity_kmeans_500s_500p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
                 st.write("")
                 KmeansResults1 = "<style>"\
                 "table {"\
@@ -1064,7 +1064,7 @@ def KNN():
                     'goldenrod','navy','grey','darksalmon','red','magenta','maroon','mediumaquamarine','mediumblue',
                     'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                     'goldenrod','navy','grey']
-                #resultatsKNNBokeh("accuracy_kmeans_400s_600p_v1.0.csv", "precision_kmeans_400s_600p_v1.0.csv", "recall_kmeans_400s_600p_v1.0.csv", "f1score_kmeans_400s_600p_v1.0.csv", "specificity_kmeans_400s_600p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+                resultatsKNNBokeh("accuracy_kmeans_400s_600p_v1.0.csv", "precision_kmeans_400s_600p_v1.0.csv", "recall_kmeans_400s_600p_v1.0.csv", "f1score_kmeans_400s_600p_v1.0.csv", "specificity_kmeans_400s_600p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
                 st.write("")
                 KmeansResults2 = "<style>"\
                 "table {"\
@@ -1113,7 +1113,7 @@ def KNN():
                 'goldenrod','navy','grey','darksalmon','red','magenta','maroon','mediumaquamarine','mediumblue',
                 'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                 'goldenrod','navy','grey']
-                #resultatsKNNBokeh("accuracy_kmeans_200s_800p_v1.0.csv", "precision_kmeans_200s_800p_v1.0.csv", "recall_kmeans_200s_800p_v1.0.csv", "f1score_kmeans_200s_800p_v1.0.csv", "specificity_kmeans_200s_800p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+                resultatsKNNBokeh("accuracy_kmeans_200s_800p_v1.0.csv", "precision_kmeans_200s_800p_v1.0.csv", "recall_kmeans_200s_800p_v1.0.csv", "f1score_kmeans_200s_800p_v1.0.csv", "specificity_kmeans_200s_800p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
                 st.write("")
                 KmeansResults3 = "<style>"\
                 "table {"\
@@ -1162,7 +1162,7 @@ def KNN():
                     'goldenrod','navy','grey','darksalmon','red','magenta','maroon','mediumaquamarine','mediumblue',
                     'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                     'goldenrod','navy','grey']
-                #resultatsKNNBokeh("accuracy_kmeans_600s_400p_v1.0.csv", "precision_kmeans_600s_400p_v1.0.csv", "recall_kmeans_600s_400p_v1.0.csv", "f1score_kmeans_600s_400p_v1.0.csv", "specificity_kmeans_600s_400p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+                resultatsKNNBokeh("accuracy_kmeans_600s_400p_v1.0.csv", "precision_kmeans_600s_400p_v1.0.csv", "recall_kmeans_600s_400p_v1.0.csv", "f1score_kmeans_600s_400p_v1.0.csv", "specificity_kmeans_600s_400p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
                 st.write("")
                 KmeansResults4 = "<style>"\
                 "table {"\
@@ -1212,7 +1212,7 @@ def KNN():
                     'goldenrod','navy','grey','darksalmon','red','magenta','maroon','mediumaquamarine','mediumblue',
                     'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                     'goldenrod','navy','grey']
-                #resultatsKNNBokeh("accuracy_kmeans_50s_50p_v1.0.csv", "precision_kmeans_50s_50p_v1.0.csv", "recall_kmeans_50s_50p_v1.0.csv", "f1score_kmeans_50s_50p_v1.0.csv", "specificity_kmeans_50s_50p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+                resultatsKNNBokeh("accuracy_kmeans_50s_50p_v1.0.csv", "precision_kmeans_50s_50p_v1.0.csv", "recall_kmeans_50s_50p_v1.0.csv", "f1score_kmeans_50s_50p_v1.0.csv", "specificity_kmeans_50s_50p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
                 st.write("")
                 KmeansResults5 = "<style>"\
                 "table {"\
@@ -1261,7 +1261,7 @@ def KNN():
                     'goldenrod','navy','grey','darksalmon','red','magenta','maroon','mediumaquamarine','mediumblue',
                     'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                     'goldenrod','navy','grey']
-                #resultatsKNNBokeh("accuracy_kmeans_15s_15p_v1.0.csv", "precision_kmeans_15s_15p_v1.0.csv", "recall_kmeans_15s_15p_v1.0.csv", "f1score_kmeans_15s_15p_v1.0.csv", "specificity_kmeans_15s_15p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+                resultatsKNNBokeh("accuracy_kmeans_15s_15p_v1.0.csv", "precision_kmeans_15s_15p_v1.0.csv", "recall_kmeans_15s_15p_v1.0.csv", "f1score_kmeans_15s_15p_v1.0.csv", "specificity_kmeans_15s_15p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
                 st.write("")
                 KmeansResults6 = "<style>"\
                 "table {"\
@@ -1313,7 +1313,7 @@ def KNN():
                     'goldenrod','navy','grey','darksalmon','red','magenta','maroon','mediumaquamarine','mediumblue',
                     'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
                     'goldenrod','navy','grey']
-                #resultatsKNNBokeh("accuracy_kmeans_100s_100p_v1.0.csv", "precision_kmeans_100s_100p_v1.0.csv", "recall_kmeans_100s_100p_v1.0.csv", "f1score_kmeans_100s_100p_v1.0.csv", "specificity_kmeans_100s_100p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+                resultatsKNNBokeh("accuracy_kmeans_100s_100p_v1.0.csv", "precision_kmeans_100s_100p_v1.0.csv", "recall_kmeans_100s_100p_v1.0.csv", "f1score_kmeans_100s_100p_v1.0.csv", "specificity_kmeans_100s_100p_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
                 st.write("")
                 KmeansResults7 = "<style>"\
                 "table {"\
