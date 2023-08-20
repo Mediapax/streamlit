@@ -75,7 +75,7 @@ def displayKapyPredict():
         #-----------------Fin de la prédiction avec la regression-----------------#
 
     with col2:
-        #-----------------Prédiction n°2-----------------#
+        #-----------------Prédiction avec KNeighborsClassifier-----------------#
         st.subheader('Prédiction 2')
 
         # récupération du modèle
