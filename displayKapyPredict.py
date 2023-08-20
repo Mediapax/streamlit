@@ -76,20 +76,41 @@ def displayKapyPredict():
 
     with col2:
         #-----------------Prédiction avec KNeighborsClassifier-----------------#
-        chemin = "models/"
         st.subheader('Prédiction 2')
+        # mettre le code ici
+        chemin = "./models/" # sous unix ==> chemin : "./models/"
+
+        # utilisation des fonctions prédéfinies sur la pondération des données
+
+        # fonction "weights_sqr"
+        def weights_sqr(d):
+            inverse = 1.0 / d.astype(float)
+            sqr = np.square(inverse)
+            return sqr
+
+        # fonction "weights_sqr4"
+        def weights_sqr4(d):
+            sqr2 = weights_sqr(d)
+            sqr4 = np.square(sqr2)
+            return sqr4
+
+        # fonction "weights_sqr8"
+        def weights_sqr8(d):
+            sqr4 = weights_sqr4(d)
+            sqr8 = np.square(sqr4)
+            return sqr8
 
         # récupération du modèle
         st.markdown('**Modèle utilisé:**')
-        st.markdown("* `KNieghborsClassifier`")
+        st.markdown("* `KNeighborsClassifier`")
         st.markdown("* `Paramètres du modèle :`")
         st.markdown("- `n_neighbors = 10`")
         st.markdown("- `weights = weights_sqr4`")
         st.markdown("- `metric = 'manhattan'`")
 
         # Charger le modèle depuis le fichier
-        loaded_minmax = load('models/knn_minmax.joblib')
-        loaded_knn_model = load('models/knn_model.joblib')
+        loaded_knn_model = load(chemin + "knn_model.joblib") 
+        loaded_minmax = load(chemin + "knn_minmax.joblib")
 
         new_imput_perso_normalized = loaded_minmax.transform(X_new)
         
@@ -107,6 +128,8 @@ def displayKapyPredict():
         else :
             st.write("Prédiction : 1mm ou plus")
             st.write("% de chance de pluie le lendemain: ", np.round(probaPluie*100,2))
+        
+        st.write("")
         
         #-----------------Fin de la Prédiction n°2-----------------#
     
