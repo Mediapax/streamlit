@@ -88,8 +88,8 @@ def displayKapyPredict():
         st.markdown("- `metric = 'manhattan'`")
 
         # Charger le modèle depuis le fichier
-        loaded_knn_model = load(chemin+"knn_model.joblib")
-        loaded_minmax = load(chemin+"knn_minmax.joblib")
+        loaded_minmax = load('models/knn_minmax.joblib')
+        loaded_knn_model = load('models/knn_model.joblib')
 
         new_imput_perso_normalized = loaded_minmax.transform(X_new)
         
