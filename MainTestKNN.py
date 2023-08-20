@@ -14,7 +14,7 @@ from displayKapyPredict import displayKapyPredict
 def main():
 
     def genModel() :
-        chemin = "./models/" # sous unix ==> chemin : "models/"
+        chemin = ".\\models\\" # sous unix ==> chemin : "models/"
         st.header("Génération du modèle")
         # df_final = pd.read_csv(path, index_col=0)
         df = pd.read_csv('https://raw.githubusercontent.com/ArnoMac/weatherAUS/main/weatherAUS_Kapy_v2.csv', index_col=0)
@@ -33,7 +33,6 @@ def main():
         X_train, X_test, y_train, y_test = train_test_split(features, target, test_size = .2, random_state = 42, shuffle = True)
 
         # Normalisation des données
-        from sklearn.preprocessing import MinMaxScaler
         # pour plus d'info, voir : https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html
         knnminmax1 = MinMaxScaler()
         X_train_minmax = knnminmax1.fit_transform(X_train,y_train)
@@ -104,9 +103,7 @@ def main():
         st.write("Specificity = TN/(TN+FP) ==> ",Specificity(TN,FP))
 
         # Enregistrer le modèle et la fonction personnalisée dans un fichier
-        model_and_functions = {'model': knn} #, 'weights_sqr': weights_sqr, 'weights_sqr4' : weights_sqr4, 'weights_sqr8' : weights_sqr8}
-        #dump(model_and_functions, chemin + 'knn_model1.joblib')
-        dump(model_and_functions, chemin + 'knnmodel1.joblib')
+        dump(knn, chemin + 'knnmodel1.joblib')
         dump(knnminmax1, chemin + 'knnminmax1.joblib')
 
         hfin = datetime.now()
