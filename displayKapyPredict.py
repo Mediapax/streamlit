@@ -77,49 +77,7 @@ def displayKapyPredict():
     with col2:
         #-----------------Prédiction avec KNeighborsClassifier-----------------#
         st.subheader('Prédiction 2')
-        # mettre le code ici
-        chemin = "./models/" # sous unix ==> chemin : "./models/""
-
-        # récupération du modèle
-        st.markdown('**Modèle utilisé:**')
-        st.markdown("* `KNieghborsClassifier`")
-        st.markdown("* `Paramètres du modèle :`")
-        st.markdown("- `n_neighbors = 10`")
-        st.markdown("- `weights = distance`")
-        st.markdown("- `metric = 'manhattan'`")
-
-        # Charger le modèle depuis le fichier
-        model_and_functions = load(chemin + 'knnmodel1.joblib')
-
-        # utilisation des fonctions prédéfinies sur la pondération des données
-        # 'weights_sqr': weights_sqr, 'weights_sqr4' : weights_sqr4, 'weights_sqr8' : weights_sqr8
-        # loaded_weights_sqr = model_and_functions['weights_sqr']
-        # loaded_weights_sqr4 = model_and_functions['weights_sqr4']
-        # loaded_weights_sqr8 = model_and_functions['weights_sqr8']
-
-        # chargement du modèle :
-        loaded_knn_model = model_and_functions['model']
-
-        # chargement normalisation
-        loaded_minmax = load(chemin + 'knnminmax1.joblib')
         
-        # Affichage de la prédiction
-        new_imput_perso_normalized = loaded_minmax.transform(X_new)
-        probaPluie = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,1]
-        probaSec = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,0]
-
-        # pas de pluie
-        if  probaSec >=  probaPluie :
-            st.write("Prédiction : 0 ou moins de 1mm")
-            st.write("% de chance de temps sec le lendemain: ", np.round(probaSec*100,2)) 
-
-        # pluie
-        else :
-            st.write("Prédiction : 1mm ou plus")
-            st.write("% de chance de pluie le lendemain: ", np.round(probaPluie*100,2))
-        
-        st.write("")
-        st.write("")
         
                 
         #-----------------Fin de la Prédiction n°2-----------------#
