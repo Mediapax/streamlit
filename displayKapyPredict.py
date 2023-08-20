@@ -77,7 +77,35 @@ def displayKapyPredict():
     with col2:
         #-----------------Prédiction n°2-----------------#
         st.subheader('Prédiction 2')
-        # mettre le code ici
+
+        # récupération du modèle
+        st.markdown('**Modèle utilisé:**')
+        st.markdown("* `KNieghborsClassifier`")
+        st.markdown("* `Paramètres du modèle :`")
+        st.markdown("- `n_neighbors = 10`")
+        st.markdown("- `weights = weights_sqr4`")
+        st.markdown("- `metric = 'manhattan'`")
+
+        # Charger le modèle depuis le fichier
+        loaded_knn_model = joblib.load('models/knn_model.joblib') # sous unix ==> chemin : 'models/linreg.joblib'
+        loaded_minmax = joblib.load('models/knn_minmax.joblib')
+
+        new_imput_perso_normalized = loaded_minmax.transform(X_new)
+        
+        # Affichage de la prédiction
+
+        probaPluie = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,1]
+        probaSec = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,0]
+
+        # pas de pluie
+        if  probaSec >=  probaPluie :
+            st.write("Prédiction : 0 ou moins de 1mm")
+            st.write("% de chance de pluie le lendemain: ", np.round(probaSec*100,2)) 
+
+        # pluie
+        else :
+            st.write("Prédiction : 1mm ou plus")
+            st.write("% de chance de pluie le lendemain: ", np.round(probaPluie*100,2))
         
         #-----------------Fin de la Prédiction n°2-----------------#
     
