@@ -76,7 +76,7 @@ def displayKapyPredict():
 
     with col2:
         #-----------------Prédiction avec KNeighborsClassifier-----------------#
-        chemin = "./models/"
+        chemin = "models/"
         st.subheader('Prédiction 2')
 
         # récupération du modèle
