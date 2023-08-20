@@ -76,61 +76,7 @@ def displayKapyPredict():
 
     with col2:
         #-----------------Prédiction avec KNeighborsClassifier-----------------#
-        st.subheader('Prédiction 2')
-        # mettre le code ici
-        chemin = "./models/" # sous unix ==> chemin : "./models/"
-
-        # utilisation des fonctions prédéfinies sur la pondération des données
-
-        # fonction "weights_sqr"
-        def weights_sqr(d):
-            inverse = 1.0 / d.astype(float)
-            sqr = np.square(inverse)
-            return sqr
-
-        # fonction "weights_sqr4"
-        def weights_sqr4(d):
-            sqr2 = weights_sqr(d)
-            sqr4 = np.square(sqr2)
-            return sqr4
-
-        # fonction "weights_sqr8"
-        def weights_sqr8(d):
-            sqr4 = weights_sqr4(d)
-            sqr8 = np.square(sqr4)
-            return sqr8
-
-        # récupération du modèle
-        st.markdown('**Modèle utilisé:**')
-        st.markdown("* `KNeighborsClassifier`")
-        st.markdown("* `Paramètres du modèle :`")
-        st.markdown("- `n_neighbors = 10`")
-        st.markdown("- `weights = weights_sqr4`")
-        st.markdown("- `metric = 'manhattan'`")
-
-        # Charger le modèle depuis le fichier
-        loaded_knn_model = load(chemin + "knn_model.joblib") 
-        loaded_minmax = load(chemin + "knn_minmax.joblib")
-
-        new_imput_perso_normalized = loaded_minmax.transform(X_new)
-        
-        # Affichage de la prédiction
-
-        probaPluie = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,1]
-        probaSec = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,0]
-
-        # pas de pluie
-        if  probaSec >=  probaPluie :
-            st.write("Prédiction : 0 ou moins de 1mm")
-            st.write("% de chance de pluie le lendemain: ", np.round(probaSec*100,2)) 
-
-        # pluie
-        else :
-            st.write("Prédiction : 1mm ou plus")
-            st.write("% de chance de pluie le lendemain: ", np.round(probaPluie*100,2))
-        
-        st.write("")
-        
+                
         #-----------------Fin de la Prédiction n°2-----------------#
     
     with col3:
