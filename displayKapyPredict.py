@@ -76,6 +76,7 @@ def displayKapyPredict():
 
     with col2:
         #-----------------Prédiction avec KNeighborsClassifier-----------------#
+        st.subheader('Prédiction 2')
                 
         #-----------------Fin de la Prédiction n°2-----------------#
     
