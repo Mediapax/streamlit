@@ -4,6 +4,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from joblib import load
+import joblib as joblib
 
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -76,6 +77,7 @@ def displayKapyPredict():
 
     with col2:
         #-----------------Prédiction avec KNeighborsClassifier-----------------#
+        chemin = "./models/"
         st.subheader('Prédiction 2')
 
         # récupération du modèle
@@ -87,8 +89,8 @@ def displayKapyPredict():
         st.markdown("- `metric = 'manhattan'`")
 
         # Charger le modèle depuis le fichier
-        loaded_knn_model = joblib.load('models/knn_model.joblib') # sous unix ==> chemin : 'models/linreg.joblib'
-        loaded_minmax = joblib.load('models/knn_minmax.joblib')
+        loaded_knn_model = joblib.load(chemin+'knn_model.joblib') # sous unix ==> chemin : 'models/linreg.joblib'
+        loaded_minmax = joblib.load(chemin+'knn_minmax.joblib')
 
         new_imput_perso_normalized = loaded_minmax.transform(X_new)
         
