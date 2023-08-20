@@ -14,7 +14,7 @@ from displayKapyPredict import displayKapyPredict
 def main():
 
     def genModel() :
-        chemin = ".\\models\\" # sous unix ==> chemin : "models/"
+        chemin = "./models/" # sous unix ==> chemin : "models/"
         st.header("Génération du modèle")
         # df_final = pd.read_csv(path, index_col=0)
         df = pd.read_csv('https://raw.githubusercontent.com/ArnoMac/weatherAUS/main/weatherAUS_Kapy_v2.csv', index_col=0)
