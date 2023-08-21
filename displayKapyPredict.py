@@ -81,7 +81,7 @@ def displayKapyPredict():
 
         # récupération du modèle
         st.markdown('**Modèle utilisé:**')
-        st.markdown("* `KNieghborsClassifier`")
+        st.markdown("* `KNeighborsClassifier`")
         st.markdown("- `n_neighbors = 10`")
         st.markdown("- `weights = distance`")
         st.markdown("- `metric = 'manhattan'`")
