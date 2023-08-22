@@ -14,7 +14,7 @@ from displayKapyPredict import displayKapyPredict
 def main():
 
     def genModel() :
-        chemin = ".\\models\\" # sous unix ==> chemin : "models/"
+        chemin = "./models/" # sous unix ==> chemin : "models/"
         st.header("Génération du modèle")
         # df_final = pd.read_csv(path, index_col=0)
         df = pd.read_csv('https://raw.githubusercontent.com/ArnoMac/weatherAUS/main/weatherAUS_Kapy_v2.csv', index_col=0)
@@ -103,8 +103,8 @@ def main():
         st.write("Specificity = TN/(TN+FP) ==> ",Specificity(TN,FP))
 
         # Enregistrer le modèle et la fonction personnalisée dans un fichier
-        dump(knn, chemin + 'knnmodel1.joblib')
-        dump(knnminmax1, chemin + 'knnminmax1.joblib')
+        dump(knn, chemin + 'knnmodelTest.joblib')
+        dump(knnminmax1, chemin + 'knnminmaxTest.joblib')
 
         hfin = datetime.now()
         st.write("heure de fin KNN sur X_train_minmax + calcul de y_predict: " + str(hfin))
