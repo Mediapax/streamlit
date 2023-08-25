@@ -47,10 +47,13 @@ def multiClasses():
     data = df.drop(['RainClassTomorrow'], axis=1)
     target = df['RainClassTomorrow']
 
+    id = filename_path+'joblib_truth'
+    y_train = load(id+'.predtrain')
+    y_test = load(id+'.predtest')
+    
     #-----------------------------------------------------#
     
-    st.markdown(".")
-    
+    st.markdown("Blablabla.")    
     
     st.subheader("Jeu de données d'entrée")
     columns_selection=['Rainfall', 'WindGustSpeed', 'Temp9am', 'diffTempMinMax', 'diffWind3pm9am',
