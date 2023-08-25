@@ -96,7 +96,7 @@ def multiClasses():
         id = filename_path+df_models.iloc[i, 0]
         pred_train = load(id+'.predtrain')
         pred_test = load(id+'.predtest')
-        y_pred[df_models.iloc[i, 1]] = pred_test
+        y_pred[df_models['Model'].iloc[i]] = pred_test
 
         # calcul du balanced accuracy score
         df_models.loc[i, 'bal_acc_train'] = balanced_accuracy_score(y_train, pred_train)
