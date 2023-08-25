@@ -4,7 +4,7 @@ import streamlit as st
 from resizeImage import resizeImage, loadImage
 from PIL import Image
 from displayBackground import displayBackground
-# from resultatsKNNBokeh import resultatsKNNBokeh
+from resultatsKNNBokeh import resultatsKNNBokeh
 
 def KNN():
 
