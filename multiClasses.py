@@ -138,7 +138,6 @@ def multiClasses():
         pred_train = y_pred_train[df_models['Model'].iloc[i]] // 2
         pred_test = y_pred_test[df_models['Model'].iloc[i]] // 2
 
-        # calcul du balanced accuracy score
         df_models.loc[i, 'bal_acc_train'] = balanced_accuracy_score(truth_train, pred_train)
         df_models.loc[i, 'bal_acc_test'] = balanced_accuracy_score(truth_test, pred_test)
         # calcul du score F1
