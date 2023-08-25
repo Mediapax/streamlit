@@ -85,7 +85,7 @@ def multiClasses():
                   'HistGradBoostingReg': 'HistGradientBoostingRegressor'}
 
     # Résultats
-    st.header("Résultats")
+    st.subheader("Résultats")
     models = {'joblib_logreg': 'LogisticRegression',
               'joblib_HistGradBoostingReg': 'HistGradientBoostingRegressor'}
     df_models = pd.DataFrame(list(models.keys()), columns=['id'])
@@ -113,7 +113,7 @@ def multiClasses():
     st.dataframe(df_models.round(2), hide_index=True)
 
     # Visualisation des matrices de confusion
-    st.header("Matrices de confusion à 3 classes")
+    st.subheader("Matrices de confusion")
     col1, col2 = st.columns(2, gap='medium')
 
     # modèles de regression
@@ -129,10 +129,15 @@ def multiClasses():
         st.pyplot(fig.figure_)
 
     # Réduction à 2 classes
+    st.header("Réduction à 2 classes")
+    st.markup("On fusionne ensuite les deux premières classes qui correspondent à une pluie inférieure à 1mm.")
 
     # Réduction des classes: {0, 1} -> 0, 2->1
     truth_train = y_train // 2
     truth_test = y_test // 2
+
+    df_models = pd.DataFrame(list(models.keys()), columns=['id'])
+    df_models['Model'] = df_models['id'].apply(lambda x: model_list[re.findall('joblib_([a-zA-Z]+)', x)[0]])
     
     for i in range(len(df_models)):
         pred_train = y_pred_train[df_models['Model'].iloc[i]] // 2
@@ -146,9 +151,11 @@ def multiClasses():
 
     df_models.set_index('id', inplace=True)
     df_models.sort_values(by='bal_acc_test', ascending=False, inplace=True)
+
+    st.subheader("Résultats")
     st.dataframe(df_models.round(2), hide_index=True)
 
-    st.header("Matrices de confusion réduite à 2 classes")
+    st.subheader("Matrices de confusion")
     col1, col2 = st.columns(2, gap='medium')
 
     # modèles de regression
