@@ -130,7 +130,7 @@ def multiClasses():
 
     # Réduction à 2 classes
     st.header("Réduction à 2 classes")
-    st.markup("On fusionne ensuite les deux premières classes qui correspondent à une pluie inférieure à 1mm.")
+    st.markdown("On fusionne ensuite les deux premières classes qui correspondent à une pluie inférieure à 1mm.")
 
     # Réduction des classes: {0, 1} -> 0, 2->1
     truth_train = y_train // 2
