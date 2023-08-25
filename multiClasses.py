@@ -2,16 +2,16 @@
 
 import streamlit as st
 import re
-from resizeImage import resizeImage, loadImage
-from PIL import Image
+#from resizeImage import resizeImage, loadImage
+#from PIL import Image
 from displayBackground import displayBackground
 import pandas as pd
 import numpy as np
 from joblib import load
 import matplotlib.pyplot as plt
 
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import balanced_accuracy_score, f1_score, ConfusionMatrixDisplay
+#from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import balanced_accuracy_score, f1_score, confusion_matrix, ConfusionMatrixDisplay
 
 # chemin d'accès aux modèles enregistrés
 filename_path = './models/multiclass/'
@@ -60,7 +60,7 @@ def multiClasses():
     columns_selection=['Rainfall', 'WindGustSpeed', 'Temp9am', 'diffTempMinMax', 'diffWind3pm9am',
            'diffPressure9am3pm', 'Pressure', 'DeltaP_1d',
            'diffHimidity9am3pm', 'Humidity', 'DeltaH_1d']
-    st.markdown('Par soucis de simplicité et pour préserver des temps de calculs acceptable, seules les variables suivantes seront conservées en raison de leur qualité de grandeur physique:')
+    st.markdown('Par souci de simplicité et pour préserver des temps de calculs acceptable, seules les variables suivantes seront conservées en raison de leur qualité de grandeur physique:')
     st.write(columns_selection)
     st.markdown("La sélection de ces variables est aussi la résultantes de plusieurs tests qui ont montré qu'elles étaient les plus importantes dans la prédiction.")
     
@@ -111,7 +111,7 @@ def multiClasses():
     st.dataframe(df_models.round(2), hide_index=True)
 
     # Visualisation des matrices de confusion
-    st.header("Matrices de confusion")
+    st.header("Matrices de confusion à 3 classes")
     col1, col2 = st.columns(2, gap='medium')
 
     # modèles de regression
@@ -124,4 +124,27 @@ def multiClasses():
     with col2:
         st.markdown("**HistGradientBoostingRegressor**")
         fig = ConfusionMatrixDisplay.from_predictions(y_test, y_pred['HistGradientBoostingRegressor'], cmap=plt.cm.Blues)
+        st.pyplot(fig.figure_)
+
+    st.header("Matrices de confusion réduite à 2 classes")
+    col1, col2 = st.columns(2, gap='medium')
+
+    def reduceConfusionMatrix(cm):
+        # Réduit une matrice de confusion 3x3 en matrice de confusion 2x2
+        return np.array([[cm[:2,:2].sum(), cm[:2,2].sum()], [cm[2,:2].sum(), cm[2,2]]])
+    
+    # modèles de regression
+    with col1:
+        st.markdown("**LogisticRegression**")
+        cm = confusion_matrix(y_test, y_pred['LogisticRegression'])
+        cm = reduceConfusionMatrix(cm)
+        fig = ConfusionMatrixDisplay(cm2, display_labels=['<1mm', '>=1mm'], cmap=plt.cm.Blues)
+        st.pyplot(fig.figure_)
+    
+    # metrics
+    with col2:
+        st.markdown("**HistGradientBoostingRegressor**")
+        cm = confusion_matrix(y_test, y_pred['HistGradientBoostingRegressor'])
+        cm = reduceConfusionMatrix(cm)
+        fig = ConfusionMatrixDisplay(cm2, display_labels=['<1mm', '>=1mm'], cmap=plt.cm.Blues)
         st.pyplot(fig.figure_)
