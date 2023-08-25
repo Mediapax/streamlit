@@ -21,6 +21,7 @@ def multiClasses():
     st.header("Multi-classes")
 
     #-----------------------------------------------------#
+    """
     # Lecture des données
     df = pd.read_csv('https://raw.githubusercontent.com/ArnoMac/weatherAUS/main/weatherAUS_Kapy_v2.csv', parse_dates=['Date'], index_col=0)
 
@@ -46,7 +47,7 @@ def multiClasses():
     # création des jeux de données et de données cibles
     data = df.drop(['RainClassTomorrow'], axis=1)
     target = df['RainClassTomorrow']
-
+    """
     id = filename_path+'joblib_truth'
     y_train = load(id+'.predtrain')
     y_test = load(id+'.predtest')
@@ -106,7 +107,7 @@ def multiClasses():
         df_models.loc[i, 'f1_test'] = f1_score(y_test, pred_test, average='macro')
 
     df_models.set_index('id', inplace=True)
-    df_models.sort_values(by='balanced_accuracy_test', ascending=False, inplace=True)
+    df_models.sort_values(by='bal_acc_test', ascending=False, inplace=True)
     st.dataframe(df_models.round(2), hide_index=True)
 
     # Visualisation des matrices de confusion
