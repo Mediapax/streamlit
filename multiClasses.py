@@ -54,7 +54,9 @@ def multiClasses():
     
     #-----------------------------------------------------#
     
-    st.markdown("Blablabla.")    
+    st.markdown("Intuitivement, il semble qu'il y a une différence entre une pluie très faible inférieur à 1mm et une absence totale de pluie.")
+    st.markdown("Dans le premier cas, il faut qu'il y ait des nuages et une certaine humidité pour qu'il pleuve, même faiblement, tandis que dans le second cas, il peut n'y avoir aucun nuage.")
+    st.markdown("On peut alors se demander s'il ne serait pas intéressant de séparer ces deux cas de figure pour guider les modèles de prédiction, pour ensuite les fusionner afin d'obtenir la prédiction finale attendue.")
     
     st.subheader("Jeu de données d'entrée")
     columns_selection=['Rainfall', 'WindGustSpeed', 'Temp9am', 'diffTempMinMax', 'diffWind3pm9am',
