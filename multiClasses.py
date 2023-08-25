@@ -85,7 +85,7 @@ def multiClasses():
     models = {'joblib_logreg': 'LogisticRegression',
               'joblib_HistGradBoostingReg': 'HistGradientBoostingRegressor'}
     df_models = pd.DataFrame(list(models.keys()), columns=['id'])
-    df_models['Model'] = df_models['id'].apply(lambda x: model_list[re.findall('joblib_([a-zA-Z]+)_', x)[0]])
+    df_models['Model'] = df_models['id'].apply(lambda x: model_list[re.findall('joblib_([a-zA-Z]+)', x)[0]])
 
     y_pred = {}
     
