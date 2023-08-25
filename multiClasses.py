@@ -8,9 +8,10 @@ from displayBackground import displayBackground
 import pandas as pd
 import numpy as np
 from joblib import load
+import matplotlib.pyplot as plt
 
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import balanced_accuracy_score, f1_score
+from sklearn.metrics import balanced_accuracy_score, f1_score, ConfusionMatrixDisplay
 
 # chemin d'accès aux modèles enregistrés
 filename_path = './models/multiclass/'
@@ -81,15 +82,18 @@ def multiClasses():
 
     # Résultats
     st.header("Résultats")
-    models = {'joblib_logreg_xpart': 'LogisticRegression',
-              'joblib_HistGradBoostingReg_xpart': 'HistGradientBoostingRegressor'}
+    models = {'joblib_logreg': 'LogisticRegression',
+              'joblib_HistGradBoostingReg': 'HistGradientBoostingRegressor'}
     df_models = pd.DataFrame(list(models.keys()), columns=['id'])
     df_models['Model'] = df_models['id'].apply(lambda x: model_list[re.findall('joblib_([a-zA-Z]+)_', x)[0]])
+
+    y_pred = {}
     
-    for filename, name in models:
-        id = filename_path+filename
+    for i in range(len(df_models)):
+        id = filename_path+df_models.iloc[i, 0]
         pred_train = load(id+'.predtrain')
         pred_test = load(id+'.predtest')
+        y_pred[df_models.iloc[i, 1]] = pred_test
 
         # calcul du balanced accuracy score
         df_models.loc[i, 'bal_acc_train'] = balanced_accuracy_score(y_train, pred_train)
@@ -101,3 +105,19 @@ def multiClasses():
     df_models.set_index('id', inplace=True)
     df_models.sort_values(by='balanced_accuracy_test', ascending=False, inplace=True)
     st.dataframe(df_models.round(2), hide_index=True)
+
+    # Visualisation des matrices de confusion
+    st.header("Matrices de confusion")
+    col1, col2 = st.columns(2, gap='medium')
+
+    # modèles de regression
+    with col1:
+        st.markdown("**LogisticRegression**")
+        fig = ConfusionMatrixDisplay.from_predictions(y_test, y_pred['LogisticRegression'], cmap=plt.cm.Blues)
+        st.pyplot(fig.figure_)
+    
+    # metrics
+    with col2:
+        st.markdown("**HistGradientBoostingRegressor**")
+        fig = ConfusionMatrixDisplay.from_predictions(y_test, y_pred['HistGradientBoostingRegressor'], cmap=plt.cm.Blues)
+        st.pyplot(fig.figure_)
