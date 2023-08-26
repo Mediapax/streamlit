@@ -29,7 +29,7 @@ def RealTimeModelingKNN():
     
     for c in labels:
         with cols[i%4]:
-            col[c] = st.checkbox(label = c, value = False)
+            col[c] = st.checkbox(label = c, value = True)
             i += 1
 
 
