@@ -17,7 +17,7 @@ def displayRealTimeModeling():
     st.title("Construisez votre modèle")
     displayBackground("#000000","#FFFFFF")
 
-    tab1, tab2, tab3, tab4 = st.tabs(["KNN", "Arima", "Réseau de Neurones", "Régressions"])
+    tab1, tab2, tab3, tab4 = st.tabs(["KNeighborsClassifier", "Arima", "Réseau de Neurones", "Régressions"])
     
     with tab1 :
         RealTimeModelingKNN()
