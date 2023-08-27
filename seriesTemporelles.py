@@ -58,11 +58,14 @@ def seriesTemporelles():
     plt.legend()    
     st.pyplot(fig)
 
+    st.subheader("Métriques")
     acc = balanced_accuracy_score(y_test_raintomorrow, y_pred_raintomorrow)
     f1 = f1_score(y_test_raintomorrow, y_pred_raintomorrow)
     df_result = pd.DataFrame(data={'balanced_accuracy':[acc], 'f1-score':[f1]})
     st.dataframe(df_result.round(2), hide_index=True)
 
     st.subheader("Matrice de confusion")
-    fig = ConfusionMatrixDisplay.from_predictions(y_test_raintomorrow, y_pred_raintomorrow, display_labels=['Rain<=1', 'Rain>1'], cmap=plt.cm.Blues)
-    st.pyplot(fig.figure_)
+    fig = ConfusionMatrixDisplay.from_predictions(y_test_raintomorrow, y_pred_raintomorrow, display_labels=['Rain<=1', 'Rain>1'], cmap=plt.cm.Blues).figure_
+    fig.set_figwidth(4)
+    fig.set_figheight(4)
+    st.pyplot(fig)
