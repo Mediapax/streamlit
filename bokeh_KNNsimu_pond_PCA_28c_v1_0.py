@@ -25,7 +25,7 @@ def main():
             'goldenrod','navy','grey','darksalmon','red','magenta','maroon','mediumaquamarine','mediumblue',
             'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
             'goldenrod','navy','grey']
-        #resultatsKNNBokeh("accuracy_pond_PCA_28c_v1.0.csv", "precision_pond_PCA_28c_v1.0.csv", "recall_pond_PCA_28c_v1.0.csv", "f1score_pond_PCA_28c_v1.0.csv", "specificity_pond_PCA_28c_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+        resultatsKNNBokeh("accuracy_pond_PCA_28c_v1.0.csv", "precision_pond_PCA_28c_v1.0.csv", "recall_pond_PCA_28c_v1.0.csv", "f1score_pond_PCA_28c_v1.0.csv", "specificity_pond_PCA_28c_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
         st.write("")
 
     bokeh_KNNsimu_pond_PCA_28c_v1_0()
