@@ -58,7 +58,7 @@ def seriesTemporelles():
     plt.legend()    
     st.pyplot(fig)
 
-     col1, col2 = st.columns(2, gap='medium')
+    col1, col2 = st.columns(2, gap='medium')
 
     with col1:    
         st.subheader("Métriques")
