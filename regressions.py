@@ -5,11 +5,7 @@ import pandas as pd
 import numpy as np
 from joblib import load
 
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error, recall_score, precision_score, f1_score
-from sklearn.pipeline import Pipeline
+import matplotlib.pyplot as plt
 
 
 def regressions():
@@ -86,10 +82,43 @@ def regressions():
     short_list = ['joblib_linreg_xpart_pf3', 'joblib_HistGradBoostingReg_xpart_ss', 'joblib_KNNreg_xpart_ss']
     st.dataframe(df_models.loc[short_list][['r2_train', 'r2_test', 'mse_train', 'mse_test', 'mae_train', 'mae_test']].round(2), hide_index=True)
     
-    st.markdown("Résultats pour les 3 modèles combinés")
+    st.markdown("Résultats pour les 3 modèles séparés")
+    
     df_combine = load(filename_path+'joblib_results_combined.dataframe')
     st.dataframe(df_combine.round(2), hide_index=True)
     st.markdown("Nous observons une légère amélioration du R2 score.")
+
+    # Affichage du nuage de point
+    st.subheader("Affichage des prédictions en fonction des valeurs réelles")
+    st.markdown("Affichage pour le modèle 'combiné'.")
+    df_scatterplot_train, df_scatterplot_test  = load(filename_path+'joblib_results_combined_data.dataframe')
+    lim_max = int(np.max([np.max(df_scatterplot_train.values), np.max(df_scatterplot_test.values)]))
+    
+    max_plot = st.slider('Zoom', min_value=0, max_value=lim_max, value=lim_max)
+    
+    x = np.linspace(0, lim_max, 3)
+    
+    fig, axs = plt.subplots(1,2,figsize=(10,4))
+    
+    ax = axs[0]
+    ax.scatter(df_scatterplot_train.y_train, df_scatterplot_train.y_train_pred, s=1, alpha=0.6, zorder=10)
+    ax.plot(x,x, linewidth=1, color='grey', zorder=2)
+    ax.set_xlim(0,max_plot)
+    ax.set_ylim(0,max_plot)
+    ax.set_title("Observation des prédictions sur \nle jeu d'entrainement")
+    ax.set_xlabel('Précipitations réelles')
+    ax.set_ylabel('Prédictions')
+    
+    ax = axs[1]
+    ax.scatter(df_scatterplot_test.y_test, df_scatterplot_test.y_test_pred, s=1, alpha=0.6, zorder=10)
+    ax.plot(x,x, linewidth=1, color='grey', zorder=2)
+    ax.set_xlim(0,max_plot)
+    ax.set_ylim(0,max_plot)
+    ax.set_title("Observation des prédictions sur \nle jeu de test")
+    ax.set_xlabel('Précipitations réelles')
+    ax.set_ylabel('Prédictions')
+    st.pyplot(fig)
+    
     
     # Classification binaire
     st.subheader("Convertion en classification binaire")
