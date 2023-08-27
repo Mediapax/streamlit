@@ -86,8 +86,7 @@ def regressions():
     short_list = ['joblib_linreg_xpart_pf3', 'joblib_HistGradBoostingReg_xpart_ss', 'joblib_KNNreg_xpart_ss']
     st.dataframe(df_models.loc[short_list][['r2_train', 'r2_test', 'mse_train', 'mse_test', 'mae_train', 'mae_test']].round(2), hide_index=True)
     
-    st.markdown("Résultats pour les 3 modèles séparés")
-    
+    st.markdown("Résultats pour les 3 modèles combinés")
     df_combine = load(filename_path+'joblib_results_combined.dataframe')
     st.dataframe(df_combine.round(2), hide_index=True)
     st.markdown("Nous observons une légère amélioration du R2 score.")
