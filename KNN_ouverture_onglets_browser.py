@@ -9,7 +9,7 @@ import webbrowser
 
 def KNN():
 
-    chemin = ".\\techniquesML\\"
+    chemin = "./techniquesML/"
     
     BokehSimuPrincipauxResultats = chemin + "BokehSimuPrincipauxResultats.jpg"
     BokehSimuPrincipauxResultats_url = "https://kapybokehknnsimuv10.streamlit.app/"
