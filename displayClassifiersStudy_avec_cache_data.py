@@ -6,7 +6,8 @@ from PIL import Image
 from displayBackground import displayBackground
 
 from modelesNaifs import modelesNaifs
-from KNN_avec_cache_data import KNN
+from KNN_ouverture_onglets_browser import KNN
+# from KNN_avec_cache_data import KNN
 from reechantillonage import reechantillonage
 from multiClasses import multiClasses
 from regressions import regressions
