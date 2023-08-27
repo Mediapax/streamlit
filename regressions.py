@@ -23,9 +23,7 @@ def regressions():
     
     
     st.subheader("Jeu de données d'entrée")
-    columns_selection=['Rainfall', 'WindGustSpeed', 'Temp9am', 'diffTempMinMax', 'diffWind3pm9am',
-       'diffPressure9am3pm', 'Pressure', 'DeltaP_1d',
-       'diffHimidity9am3pm', 'Humidity', 'DeltaH_1d']
+    columns_selection=['Rainfall', 'WindGustSpeed', 'Temp9am', 'diffTempMinMax', 'diffWind3pm9am', 'diffPressure9am3pm', 'Pressure', 'DeltaP_1d', 'diffHimidity9am3pm', 'Humidity', 'DeltaH_1d']
     st.markdown('Par soucis de simplicité et pour préserver des temps de calculs acceptable, seules les variables suivantes seront conservées en raison de leur qualité de grandeur physique:')
     st.write(columns_selection)
     st.markdown("La sélection de ces variables est aussi la résultantes de plusieurs tests qui ont montré qu'elles étaient les plus importantes dans la prédiction.")
@@ -63,16 +61,13 @@ def regressions():
     st.markdown("1. Log")
     st.markdown('2. 1/x')
     
-    # chemin d'accès aux modèles enregistrés
-    filename_path = './models/'
-    
     # liste des modèles et noms correspondants
     model_list = {'linreg': 'LinearRegression',
-              'HistGradBoostingReg': 'HistGradientBoostingRegressor', 
-              'KNNreg': 'KNeighborsRegressor'}
+                  'HistGradBoostingReg': 'HistGradientBoostingRegressor', 
+                  'KNNreg': 'KNeighborsRegressor'}
     
     ytransform_list = {'ylog1p': 'log1p',
-                   'yrecip': '1/(y+1)'}
+                       'yrecip': '1/(y+1)'}
     
     # Résultats
     st.header("Résultats")
