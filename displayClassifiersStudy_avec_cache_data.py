@@ -25,7 +25,6 @@ def displayClassifiersStudy():
         modelesNaifs()
 
     with tab2 :
-        #st.title('KNN')
         KNN()
 
     with tab3:
@@ -35,8 +34,7 @@ def displayClassifiersStudy():
         multiClasses()
 
     with tab5:
-        st.title('regressions')
-        #regressions()
+        regressions()
 
     with tab6:
         seriesTemporelles()
