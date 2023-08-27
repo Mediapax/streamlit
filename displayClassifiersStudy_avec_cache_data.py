@@ -25,6 +25,7 @@ def displayClassifiersStudy():
         modelesNaifs()
 
     with tab2 :
+        st.title('KNN')
         #KNN()
 
     with tab3:
