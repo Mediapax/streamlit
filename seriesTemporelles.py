@@ -66,6 +66,6 @@ def seriesTemporelles():
 
     st.subheader("Matrice de confusion")
     fig = ConfusionMatrixDisplay.from_predictions(y_test_raintomorrow, y_pred_raintomorrow, display_labels=['Rain<=1', 'Rain>1'], cmap=plt.cm.Blues).figure_
-    fig.set_figwidth(4)
-    fig.set_figheight(4)
+    fig.set_figwidth(2)
+    fig.set_figheight(2)
     st.pyplot(fig, use_container_width=False)
