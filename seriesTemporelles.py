@@ -42,8 +42,8 @@ def seriesTemporelles():
     location = 'Albury'
     st.subheader("Résultats pour la ville d'Albury")
 
-    y_test = load(id+'joblib_Albury_truth.predtest')
-    y_pred = load(id+'joblib_Albury_Arima.predtest')
+    y_test = load(filename_path+'joblib_Albury_truth.predtest')
+    y_pred = load(filename_path+'joblib_Albury_Arima.predtest')
 
     fig = plt.figure(figsize=(15,6))
     plt.plot(y_test_rainfall, color='blue', label='Réel')
