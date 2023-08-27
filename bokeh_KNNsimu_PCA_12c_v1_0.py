@@ -23,7 +23,7 @@ def main():
         couleurs = ['magenta','maroon','mediumaquamarine','mediumblue','mediumorchid','mediumpurple','mediumseagreen',
             'mediumslateblue','mediumspringgreen','mediumturquoise','mediumvioletred','midnightblue','gold',
             'goldenrod','navy','grey','darksalmon','red']
-        #resultatsKNNBokeh("accuracy_PCA_12c_v1.0.csv", "precision_PCA_12c_v1.0.csv", "recall_PCA_12c_v1.0.csv", "f1score_PCA_12c_v1.0.csv", "specificity_PCA_12c_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
+        resultatsKNNBokeh("accuracy_PCA_12c_v1.0.csv", "precision_PCA_12c_v1.0.csv", "recall_PCA_12c_v1.0.csv", "f1score_PCA_12c_v1.0.csv", "specificity_PCA_12c_v1.0.csv", metricsUtilisees, nbVoisinsMax, poids, couleurs)
         st.write("")
 
     bokeh_KNNsimu_PCA_12c_v1_0()
