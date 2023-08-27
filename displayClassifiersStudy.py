@@ -25,7 +25,7 @@ def displayClassifiersStudy():
         modelesNaifs()
 
     with tab2 :
-        #KNN()
+        KNN()
 
     with tab3:
         reechantillonage()
@@ -34,7 +34,7 @@ def displayClassifiersStudy():
         multiClasses()
 
     with tab5:
-        #regressions()
+        regressions()
 
     with tab6:
         seriesTemporelles()
