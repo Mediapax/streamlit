@@ -6,6 +6,7 @@ from PIL import Image
 from displayBackground import displayBackground
 from joblib import load
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 from sklearn.metrics import balanced_accuracy_score, f1_score, confusion_matrix, ConfusionMatrixDisplay
 
