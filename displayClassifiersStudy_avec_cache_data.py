@@ -25,8 +25,8 @@ def displayClassifiersStudy():
         modelesNaifs()
 
     with tab2 :
-        st.title('KNN')
-        #KNN()
+        #st.title('KNN')
+        KNN()
 
     with tab3:
         reechantillonage()
