@@ -58,7 +58,9 @@ def seriesTemporelles():
     plt.legend()    
     st.pyplot(fig)
 
-    df_result = pd.DataFrame(data=[balanced_accuracy_score(y_test_raintomorrow, y_pred_raintomorrow), f1_score(y_test_raintomorrow, y_pred_raintomorrow)], columns=['balanced_accuracy', 'f1-score'])
+    acc = balanced_accuracy_score(y_test_raintomorrow, y_pred_raintomorrow)
+    f1 = f1_score(y_test_raintomorrow, y_pred_raintomorrow)
+    df_result = pd.DataFrame(data=[acc, f1], columns=['balanced_accuracy', 'f1-score'])
     st.dataframe(df_result.round(2), hide_index=True)
 
     st.subheader("Matrice de confusion")
