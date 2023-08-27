@@ -74,13 +74,13 @@ def multiClasses():
     with col1:
         st.markdown("**Modèles de régressions**")
         st.markdown("1. `LogisticRegression`")
-        st.markdown('3. `HistGradientBoostingRegressor`')
+        st.markdown("3. `HistGradientBoostingRegressor`")
     
     # metrics
     with col2:
         st.markdown("**Métriques**")
         st.markdown("1. `balanced_accuracy`")
-        st.markdown('2. `f1_score 'macro'`')
+        st.markdown("2. `f1_score 'macro'`")
 
     # liste des modèles et noms correspondants
     model_list = {'logreg': 'LogisticRegression',
@@ -144,13 +144,13 @@ def multiClasses():
     with col1:
         st.markdown("**Modèles de régressions**")
         st.markdown("1. `LogisticRegression`")
-        st.markdown('3. `HistGradientBoostingRegressor`')
+        st.markdown("3. `HistGradientBoostingRegressor`")
     
     # metrics
     with col2:
         st.markdown("**Métriques**")
         st.markdown("1. `balanced_accuracy`")
-        st.markdown('2. `f1_score(True)`')
+        st.markdown("2. `f1_score(True)`")
 
     # Réduction des classes: {0, 1} -> 0, 2->1
     truth_train = y_train // 2
