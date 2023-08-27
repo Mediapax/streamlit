@@ -18,7 +18,7 @@ def displayClassifiersStudy():
     displayBackground("#000000","#FFFFFF")
     st.title("Techniques de 'Machine Learning'")
 
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["Modèles Naïfs", "KNeighborsClassifier", "Rééchantillonages", "Multi-classes",
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["Modèles Naïfs", "KNN", "Rééchantillonages", "Multi-classes",
                                                          "Régressions", "Séries Temporelles", "Réseaux de Neurones"])
 
     
