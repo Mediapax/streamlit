@@ -80,7 +80,7 @@ def multiClasses():
     with col2:
         st.markdown("**Métriques**")
         st.markdown("1. `balanced_accuracy`")
-        st.markdown('2. `f1_score`')
+        st.markdown('2. `f1_score 'macro'`')
 
     # liste des modèles et noms correspondants
     model_list = {'logreg': 'LogisticRegression',
@@ -130,9 +130,27 @@ def multiClasses():
         fig = ConfusionMatrixDisplay.from_predictions(y_test, y_pred_test['HistGradientBoostingRegressor'], cmap=plt.cm.Blues)
         st.pyplot(fig.figure_)
 
+    st.markdown("On peut remarquer que la classe 1 est difficile à distinguer de la classe 0.")
+    
     # Réduction à 2 classes
     st.header("Réduction à 2 classes")
     st.markdown("On fusionne ensuite les deux premières classes qui correspondent à une pluie inférieure à 1mm.")
+    
+    st.divider()
+    st.subheader("Les modèles et métriques principalement utilisés:")
+    col1, col2 = st.columns(2, gap='medium')
+    
+    # modèles de regression
+    with col1:
+        st.markdown("**Modèles de régressions**")
+        st.markdown("1. `LogisticRegression`")
+        st.markdown('3. `HistGradientBoostingRegressor`')
+    
+    # metrics
+    with col2:
+        st.markdown("**Métriques**")
+        st.markdown("1. `balanced_accuracy`")
+        st.markdown('2. `f1_score(True)`')
 
     # Réduction des classes: {0, 1} -> 0, 2->1
     truth_train = y_train // 2
@@ -148,8 +166,8 @@ def multiClasses():
         df_models.loc[i, 'bal_acc_train'] = balanced_accuracy_score(truth_train, pred_train)
         df_models.loc[i, 'bal_acc_test'] = balanced_accuracy_score(truth_test, pred_test)
         # calcul du score F1
-        df_models.loc[i, 'f1_train'] = f1_score(truth_train, pred_train, average='macro')
-        df_models.loc[i, 'f1_test'] = f1_score(truth_test, pred_test, average='macro')
+        df_models.loc[i, 'f1_train'] = f1_score(truth_train, pred_train)
+        df_models.loc[i, 'f1_test'] = f1_score(truth_test, pred_test)
 
     df_models.set_index('id', inplace=True)
     df_models.sort_values(by='bal_acc_test', ascending=False, inplace=True)
