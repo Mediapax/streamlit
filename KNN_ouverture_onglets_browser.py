@@ -12,7 +12,7 @@ def KNN():
     chemin = "./techniquesML/"
     
     BokehSimuPrincipauxResultats = chemin + "BokehSimuPrincipauxResultats.jpg"
-    BokehSimuPrincipauxResultats_url = "https://kapybokehknnsimuv10.streamlit.app/"
+    BokehSimuPrincipauxResultats_url = """https://kapybokehknnsimuv10.streamlit.app/"""
 
     BokehSimuKMeans500s500p = chemin + "BokehSimuKMeans500s500p.jpg"
     BokehSimuKMeans500s500p_url = "https://kapybokehknnsimukmeans500s500pv10.streamlit.app/"
