@@ -43,8 +43,10 @@ def seriesTemporelles():
     location = 'Albury'
     st.subheader("Résultats pour la ville d'Albury")
 
-    y_test_rainfall = load(filename_path+'joblib_Albury_truth.predtest')
-    y_pred_rainfall = load(filename_path+'joblib_Albury_Arima.predtest')
+    y_test_rainfall = load(filename_path+'joblib_Albury_rainfall_truth.predtest')
+    y_pred_rainfall = load(filename_path+'joblib_Albury_rainfall_Arima.predtest')
+    y_test_raintomorrow = load(filename_path+'joblib_Albury_raintomorrow_truth.predtest')
+    y_pred_raintomorrow = load(filename_path+'joblib_Albury_raintomorrow_Arima.predtest')
 
     fig = plt.figure(figsize=(15,6))
     plt.plot(y_test_rainfall, color='blue', label='Réel')
@@ -54,9 +56,6 @@ def seriesTemporelles():
     plt.title('Prévision de précipitations à ' + location)
     plt.legend()    
     st.pyplot(fig)
-
-    y_pred_raintomorrow = (y_pred_rainfall > 1)
-    y_test_raintomorrow = (y_test_rainfall > 1)
 
     df_result = pd.DataFrame(data=[balanced_accuracy_score(y_test_raintomorrow, y_pred_raintomorrow), f1_score(y_test_raintomorrow, y_pred_raintomorrow)],
                              columns=['balanced_accuracy', 'f1-score'])
