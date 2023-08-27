@@ -4,7 +4,12 @@ import streamlit as st
 from resizeImage import resizeImage, loadImage
 from PIL import Image
 from displayBackground import displayBackground
-from resizeImage import resizeImage, loadImage
+from joblib import load
+import matplotlib.pyplot as plt
+from sklearn.metrics import balanced_accuracy_score, f1_score, confusion_matrix, ConfusionMatrixDisplay
+
+# chemin d'accès aux modèles enregistrés
+filename_path = './models/arima/'
 
 def seriesTemporelles():
     displayBackground("#000000","#FFFFFF")
@@ -26,9 +31,25 @@ def seriesTemporelles():
     col1, col2 = st.columns(2, gap='medium')
     
     with col1:
-        st.image(loadImage("./models/arima/Arima_acf.png",200))
+        st.image(loadImage(filename_path+"Arima_acf.png",400))
     
     with col2:
-        st.image(loadImage("./models/arima/Arima_pacf.png",200))
+        st.image(loadImage(filename_path+"Arima_pacf.png",400))
 
     st.divider()
+
+    # Résultats
+    location = 'Albury'
+    st.subheader("Résultats pour la ville d'Albury")
+
+    y_test = load(id+'joblib_Albury_truth.predtest')
+    y_pred = load(id+'joblib_Albury_Arima.predtest')
+
+    fig = plt.figure(figsize=(15,6))
+    plt.plot(y_test_rainfall, color='blue', label='Réel')
+    plt.plot(y_pred_rainfall, color='red', label='Prédit')
+    plt.ylim(0,10)
+    plt.axhline(y=1, color='green', ls='--', label='Seuil de 1mm')
+    plt.title('Prévision de précipitations à ' + location)
+    plt.legend()    
+    st.pyplot(fig)
