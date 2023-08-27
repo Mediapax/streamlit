@@ -5,50 +5,50 @@ from resizeImage import resizeImage, loadImage
 from PIL import Image
 from displayBackground import displayBackground
 import webbrowser
-# from resultatsKNNBokeh import resultatsKNNBokeh
+#from resultatsKNNBokeh import resultatsKNNBokeh
 
 def KNN():
 
     chemin = ".\\techniquesML\\"
     
     BokehSimuPrincipauxResultats = chemin + "BokehSimuPrincipauxResultats.jpg"
-    BokehSimuPrincipauxResultats_url = "http://localhost:8502"
+    BokehSimuPrincipauxResultats_url = "https://kapybokehknnsimuv10.streamlit.app/"
 
     BokehSimuKMeans500s500p = chemin + "BokehSimuKMeans500s500p.jpg"
-    BokehSimuKMeans500s500p_url = "http://localhost:8503"
+    BokehSimuKMeans500s500p_url = "https://kapybokehknnsimukmeans500s500pv10.streamlit.app/"
 
     BokehSimuKMeans100s100p = chemin + "BokehSimuKMeans100s100p.jpg"
-    BokehSimuKMeans100s100p_url = "http://localhost:8504"
+    BokehSimuKMeans100s100p_url = "https://kapybokehknnsimukmeans100s100pv10.streamlit.app/"
 
     BokehSimuKMeans15s15p = chemin + "BokehSimuKMeans15s15p.jpg"
-    BokehSimuKMeans15s15p_url = "http://localhost:8505"
+    BokehSimuKMeans15s15p_url = "https://kapybokehknnsimukmeans15s15pv10.streamlit.app/"
 
     BokehSimuKMeans50s50p = chemin + "BokehSimuKMeans50s50p.jpg"
-    BokehSimuKMeans50s50p_url = "http://localhost:8506"
+    BokehSimuKMeans50s50p_url = "https://kapybokehknnsimukmeans50s50pv10.streamlit.app/"
 
     BokehSimuKMeans600s400p = chemin + "BokehSimuKMeans600s400p.jpg"
-    BokehSimuKMeans600s400p_url = "http://localhost:8507"
+    BokehSimuKMeans600s400p_url = "https://kapybokehknnsimukmeans600s400pv10.streamlit.app/"
 
     BokehSimuKMeans200s800p = chemin + "BokehSimuKMeans200s800p.jpg"
-    BokehSimuKMeans200s800p_url = "http://localhost:8508"
+    BokehSimuKMeans200s800p_url = "https://kapybokehknnsimukmeans200s800pv10.streamlit.app/"
 
     BokehSimuKMeans400s600p = chemin + "BokehSimuKMeans400s600p.jpg"
-    BokehSimuKMeans400s600p_url = "http://localhost:8509"
+    BokehSimuKMeans400s600p_url = "https://kapybokehknnsimukmeans400s600pv10.streamlit.app/"
 
     BokehSimuPCA28ComposantesAvecPondération = chemin + "BokehSimuPCA28ComposantesAvecPondération.jpg"
-    BokehSimuPCA28ComposantesAvecPondération_url = "http://localhost:8510"
+    BokehSimuPCA28ComposantesAvecPondération_url = "https://kapybokehknnsimupondpca28cv10.streamlit.app/"
 
     BokehSimuPCA28ComposantesSansPondération = chemin + "BokehSimuPCA28ComposantesSansPondération.jpg"
-    BokehSimuPCA28ComposantesSansPondération_url = "http://localhost:8511"
+    BokehSimuPCA28ComposantesSansPondération_url = "https://kapybokehknnsimupca28cv10.streamlit.app/"
 
     BokehSimuPCA12Composantes = chemin + "BokehSimuPCA12Composantes.jpg"
-    BokehSimuPCA12Composantes_url = "http://localhost:8512"
+    BokehSimuPCA12Composantes_url = "https://kapybokehknnsimupca12cv10.streamlit.app/"
 
     BokehSimuPondViaInformationMutuelle = chemin + "BokehSimuPondViaInformationMutuelle.jpg"
-    BokehSimuPondViaInformationMutuelle_url = "http://localhost:8513"
+    BokehSimuPondViaInformationMutuelle_url = "https://kapybokehknnsimupondvarinfmutv10.streamlit.app/"
 
     BokehSimuFctPondPersonnaliseeWeightsSQR = chemin + "BokehSimuFctPondPersonnaliseeWeightsSQR.jpg"
-    BokehSimuFctPondPersonnaliseeWeightsSQR_url = "http://localhost:8514"
+    BokehSimuFctPondPersonnaliseeWeightsSQR_url = "https://kapybokehknnsimuweightssqrv10.streamlit.app/"
 
     displayBackground("#000000","#FFFFFF")
     st.header("KNeighborsClassifier")
@@ -267,7 +267,7 @@ def KNN():
 
             # bokeh_KNNsimu__v1_0()
 
-            st.image(loadImage(BokehSimuPrincipauxResultats,800))
+            st.image(loadImage(BokehSimuPrincipauxResultats,150))
             if st.button("Ouvrir avec Bokeh", key = "BokehSimuPrincipauxResultats"):
                 webbrowser.open_new_tab(BokehSimuPrincipauxResultats_url)                
 
@@ -622,7 +622,7 @@ def KNN():
 
             # bokeh_KNNsimu_weights_sqr_v1_0()
 
-            st.image(loadImage(BokehSimuFctPondPersonnaliseeWeightsSQR,800))
+            st.image(loadImage(BokehSimuFctPondPersonnaliseeWeightsSQR,150))
             if st.button("Ouvrir avec Bokeh", key = "BokehSimuFctPondPersonnaliseeWeightsSQR"):
                 webbrowser.open_new_tab(BokehSimuFctPondPersonnaliseeWeightsSQR_url)  
 
@@ -698,7 +698,7 @@ def KNN():
 
             #bokeh_KNNsimu_pond_var_inf_mut_v1_0()
 
-            st.image(loadImage(BokehSimuPondViaInformationMutuelle,800))
+            st.image(loadImage(BokehSimuPondViaInformationMutuelle,150))
             if st.button("Ouvrir avec Bokeh", key = "BokehSimuPondViaInformationMutuelle"):
                 webbrowser.open_new_tab(BokehSimuPondViaInformationMutuelle_url)  
 
@@ -832,7 +832,7 @@ def KNN():
 
             #bokeh_KNNsimu_PCA_12c_v1_0()
 
-            st.image(loadImage(BokehSimuPCA12Composantes,800))
+            st.image(loadImage(BokehSimuPCA12Composantes,150))
             if st.button("Ouvrir avec Bokeh", key = "BokehSimuPCA12Composantes"):
                 webbrowser.open_new_tab(BokehSimuPCA12Composantes_url)  
 
@@ -889,7 +889,7 @@ def KNN():
 
             #bokeh_KNNsimu_PCA_28c_v1_0()
 
-            st.image(loadImage(BokehSimuPCA28ComposantesSansPondération,800))
+            st.image(loadImage(BokehSimuPCA28ComposantesSansPondération,150))
             if st.button("Ouvrir avec Bokeh", key = "BokehSimuPCA28ComposantesSansPondération"):
                 webbrowser.open_new_tab(BokehSimuPCA28ComposantesSansPondération_url)  
 
@@ -946,7 +946,7 @@ def KNN():
 
             #bokeh_KNNsimu_pond_PCA_28c_v1_0()
 
-            st.image(loadImage(BokehSimuPCA28ComposantesAvecPondération,800))
+            st.image(loadImage(BokehSimuPCA28ComposantesAvecPondération,150))
             if st.button("Ouvrir avec Bokeh", key = "BokehSimuPCA28ComposantesAvecPondération"):
                 webbrowser.open_new_tab(BokehSimuPCA28ComposantesAvecPondération_url)  
 
@@ -1122,7 +1122,7 @@ def KNN():
 
                 #bokeh_KNNsimu_kmeans_500s_500p_v1_0()
 
-                st.image(loadImage(BokehSimuKMeans500s500p,800))
+                st.image(loadImage(BokehSimuKMeans500s500p,150))
                 if st.button("Ouvrir avec Bokeh", key = "BokehSimuKMeans500s500p"):
                     webbrowser.open_new_tab(BokehSimuKMeans500s500p_url)  
 
@@ -1181,7 +1181,7 @@ def KNN():
 
                 #bokeh_KNNsimu_kmeans_400s_600p_v1_0()
 
-                st.image(loadImage(BokehSimuKMeans400s600p,800))
+                st.image(loadImage(BokehSimuKMeans400s600p,150))
                 if st.button("Ouvrir avec Bokeh", key = "BokehSimuKMeans400s600p"):
                     webbrowser.open_new_tab(BokehSimuKMeans400s600p_url)  
 
@@ -1240,7 +1240,7 @@ def KNN():
 
                 #bokeh_KNNsimu_kmeans_200s_800p_v1_0()
 
-                st.image(loadImage(BokehSimuKMeans200s800p,800))
+                st.image(loadImage(BokehSimuKMeans200s800p,150))
                 if st.button("Ouvrir avec Bokeh", key = "BokehSimuKMeans200s800p"):
                     webbrowser.open_new_tab(BokehSimuKMeans200s800p_url)  
 
@@ -1299,7 +1299,7 @@ def KNN():
 
                 #bokeh_KNNsimu_kmeans_600s_400p_v1_0()
 
-                st.image(loadImage(BokehSimuKMeans600s400p,800))
+                st.image(loadImage(BokehSimuKMeans600s400p,150))
                 if st.button("Ouvrir avec Bokeh", key = "BokehSimuKMeans600s400p"):
                     webbrowser.open_new_tab(BokehSimuKMeans600s400p_url)  
 
@@ -1359,7 +1359,7 @@ def KNN():
 
                 #bokeh_KNNsimu_kmeans_50s_50p_v1_0()
 
-                st.image(loadImage(BokehSimuKMeans50s50p,800))
+                st.image(loadImage(BokehSimuKMeans50s50p,150))
                 if st.button("Ouvrir avec Bokeh", key = "BokehSimuKMeans50s50p"):
                     webbrowser.open_new_tab(BokehSimuKMeans50s50p_url)  
 
@@ -1418,7 +1418,7 @@ def KNN():
 
                 #bokeh_KNNsimu_kmeans_15s_15p_v1_0()
 
-                st.image(loadImage(BokehSimuKMeans15s15p,800))
+                st.image(loadImage(BokehSimuKMeans15s15p,150))
                 if st.button("Ouvrir avec Bokeh", key = "BokehSimuKMeans15s15p"):
                     webbrowser.open_new_tab(BokehSimuKMeans15s15p_url)  
 
@@ -1480,7 +1480,7 @@ def KNN():
 
                 #bokeh_KNNsimu_kmeans_100s_100p_v1_0()
 
-                st.image(loadImage(BokehSimuKMeans100s100p,800))
+                st.image(loadImage(BokehSimuKMeans100s100p,150))
                 if st.button("Ouvrir avec Bokeh", key= "BokehSimuKMeans100s100p"):
                     webbrowser.open_new_tab(BokehSimuKMeans100s100p_url)  
 
