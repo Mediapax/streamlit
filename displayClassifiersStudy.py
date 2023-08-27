@@ -34,7 +34,7 @@ def displayClassifiersStudy():
         multiClasses()
 
     with tab5:
-        regressions()
+        #regressions()
 
     with tab6:
         seriesTemporelles()
