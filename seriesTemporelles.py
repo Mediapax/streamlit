@@ -29,7 +29,7 @@ def seriesTemporelles():
     Il est conseillé dans ce cas d'utiliser des modèles ARIMA auxquels on adjoint la saisonnalité au moyen de variables de Fourier.")
     st.markdown("Par ailleurs, la quantité de pluie reste proche de zéro tout au long de la période analysée, aussi on considère qu'il n'y \
     a pas de tendance particulière, ni de besoin de différencier la série.")
-    st.markdown("L'analyse des diagrammes d'auto-corrélation et d'autocorrélation partielle de la série temporelle amène à envisager un modèle auto-régressif ARIMA(1, 0, 0) :")
+    st.markdown("L'analyse des diagrammes d'auto-corrélation et d'autocorrélation partielle de la série temporelle amène à envisager un modèle auto-régressif **ARIMA(1, 0, 0)** :")
     col1, col2 = st.columns(2, gap='medium')
     
     with col1:
