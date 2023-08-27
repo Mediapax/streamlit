@@ -268,8 +268,10 @@ def KNN():
             # bokeh_KNNsimu__v1_0()
 
             st.image(loadImage(BokehSimuPrincipauxResultats,150))
-            if st.button("Ouvrir avec Bokeh", key = "BokehSimuPrincipauxResultats"):
-                webbrowser.open_new_tab(BokehSimuPrincipauxResultats_url)                
+            lien1 = "<a href=" + BokehSimuPrincipauxResultats_url + ">Ouvrir avec Bokeh</a>"
+            st.markdown(lien1, unsafe_allow_html = True)
+            # if st.button("Ouvrir avec Bokeh", key = "BokehSimuPrincipauxResultats"):
+            #     webbrowser.open_new_tab(BokehSimuPrincipauxResultats_url)               
 
         with tab3 :
             st.write("")
