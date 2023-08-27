@@ -54,3 +54,14 @@ def seriesTemporelles():
     plt.title('Prévision de précipitations à ' + location)
     plt.legend()    
     st.pyplot(fig)
+
+    y_pred_raintomorrow = (y_pred_rainfall > 1)
+    y_test_raintomorrow = (y_test_rainfall > 1)
+
+    df_result = pd.DataFrame(data=[balanced_accuracy_score(y_test_raintomorrow, y_pred_raintomorrow), f1_score(y_test_raintomorrow, y_pred_raintomorrow)],
+                             columns=['balanced_accuracy', 'f1-score])
+    st.dataframe(df_result.round(2), hide_index=True)
+
+    st.subheader("Matrice de confusion")
+    fig = ConfusionMatrixDisplay.from_predictions(y_test_raintomorrow, y_pred_raintomorrow, cmap=plt.cm.Blues)
+    st.pyplot(fig.figure_)
