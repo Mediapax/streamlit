@@ -35,7 +35,8 @@ def displayClassifiersStudy():
         multiClasses()
 
     with tab5:
-        regressions()
+        st.title('regressions')
+        #regressions()
 
     with tab6:
         seriesTemporelles()
