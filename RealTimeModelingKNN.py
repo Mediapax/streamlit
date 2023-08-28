@@ -171,7 +171,7 @@ def RealTimeModelingKNN():
         '''
 
         def calcul_Kmeans(sec,pluie,X_train_pond,y_train):
-            with st.spinner("Pondération Kmeans en cours..."):
+            with st.spinner("KMeans : Recherche des centroïdes en cours..."):
                 # jeux de données d'entrainement
                 df_Kmeans = pd.DataFrame(X_train_pond,y_train.index)
                 df_Kmeans["RainTomorrow"] = y_train
@@ -201,7 +201,7 @@ def RealTimeModelingKNN():
                 return X_train_simpl, X_test_simpl, y_train
             
         def calcul_PCA(taux):
-            with st.spinner("Pondération PCA en cours..."):
+            with st.spinner("PCA : Réduction de dimensions en cours..."):
                 from sklearn.decomposition import PCA
                 pca95 = PCA(n_components  = taux)
                 d_optimal = pca95.fit(X_train_pond)
