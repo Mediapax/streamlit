@@ -69,7 +69,7 @@ def reechantillonage():
     ax.set_title('Scores en fonction du taux de ré-échantillonage')
     ax.set_xlabel('Undersampling ratio')
     ax.set_ylabel('Score')
-    ax.set_ylim(0.5,1)
+    ax.set_ylim(0.5,0.8)
     ax.legend()
     
     
@@ -80,7 +80,7 @@ def reechantillonage():
     ax.set_title('Scores en fonction du taux de ré-échantillonage')
     ax.set_xlabel('Oversampling ratio')
     ax.set_ylabel('Score')
-    ax.set_ylim(0.5,1)
+    ax.set_ylim(0.5,0.8)
     ax.legend()
     
     fig.tight_layout()
