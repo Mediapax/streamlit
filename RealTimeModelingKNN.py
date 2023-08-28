@@ -135,7 +135,7 @@ def RealTimeModelingKNN():
         if pond == "Pondération : Information Mutuelle":
             hdebut_pond = datetime.now()
             st.write("-2) Pondération : Information Mutuelle")
-            with st.spinner("Pondération en cours..."):
+            with st.spinner("Information mutuelle : Pondération en cours..."):
                 from sklearn.feature_selection import mutual_info_regression
                 # Permet de déterminer sur une dizaine de tirages au sort
                 # la moyenne de l'information mutuelle
@@ -151,7 +151,7 @@ def RealTimeModelingKNN():
         if pond == "Pondération : variance expliquée":
             hdebut_pond = datetime.now()
             st.write("-2) Pondération : variance expliquée")
-            with st.spinner("Pondération en cours..."):
+            with st.spinner("Variance expliquée : Pondération en cours..."):
                 from sklearn.decomposition import PCA
                 nb_dim = len(df_final.columns)-1
                 st.write("nb composantes = ", str(nb_dim))
