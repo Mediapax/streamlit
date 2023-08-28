@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 
 
 def reechantillonage():
-    displayBackground("#000000","#FFFFFF")
     st.title('Ré-échantillonage') 
 
     # chemin d'accès aux modèles enregistrés
