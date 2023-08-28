@@ -91,4 +91,3 @@ def reechantillonage():
     st.markdown("**Commentaire**")
     st.markdown("Nous obtenons des résultats similaires avec les méthodes `RandomUnderSampler` et `RandomOverSampler`. Pour des raisons de temps de calculs, nous préfèrerons donc nous concentrer sur l'under-sampling si besoin est.")
     
-reechantillonage()
