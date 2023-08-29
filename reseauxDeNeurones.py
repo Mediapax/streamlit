@@ -4,6 +4,7 @@ import streamlit as st
 from resizeImage import resizeImage, loadImage
 from PIL import Image
 from displayBackground import displayBackground
+import pandas as pd
 
 # chemin d'accès aux modèles enregistrés
 filename_path = './techniquesML/neural/'
@@ -41,3 +42,6 @@ def reseauxDeNeurones():
     l'initialisation des poids. Il est nécessaire d'entraîner une vingtaine de fois le modèle avec des poids \
     initiaux différents pour espérer obtenir un modèle donnant des résultats pas trop mauvais.")
     st.image(loadImage(filename_path+"lstm_model_training.png", 400))
+    st.subheader("Métriques pour la ville d'Albury")
+    df_result = pd.DataFrame(data={'balanced_accuracy':[0.602], 'f1-score':[0.605]})
+    st.dataframe(df_result, hide_index=True)
