@@ -6,6 +6,7 @@ from PIL import Image
 from displayBackground import displayBackground
 from joblib import load
 import matplotlib.pyplot as plt
+import seaborn as sns
 import numpy as np
 import pandas as pd
 from sklearn.metrics import balanced_accuracy_score, f1_score, confusion_matrix, ConfusionMatrixDisplay
@@ -71,3 +72,17 @@ def seriesTemporelles():
         st.subheader("Matrice de confusion")
         fig = ConfusionMatrixDisplay.from_predictions(y_test_raintomorrow, y_pred_raintomorrow, display_labels=['Rain<=1', 'Rain>1'], cmap=plt.cm.Blues).figure_
         st.pyplot(fig)
+
+    st.divider()
+    st.subheader("Qualité des résultats pour toutes les villes")
+    df_location_results = load(filename_path+'joblib_location_scores.predtest')
+    df_location_results = df_location_results.sort_values(['f1-score', 'balanced_accuracy'], ascending=False)
+    
+    df_location_results = df_location_results.melt(id_vars='location', value_vars=['f1-score', 'balanced_accuracy'], var_name='Variable', value_name='Value') \
+        .sort_values(['Variable', 'Value'], ascending=False)    
+    fig = sns.catplot(df_location_results, x='Value', y='location', hue='Variable', kind='bar', height=8,
+            hue_order=['f1-score', 'balanced_accuracy'], legend_out=False, palette='deep')
+    fig.axes[0].item().grid(axis='x')
+    plt.xlim(0.0, 1.0)
+    plt.title('Scores')
+    st.pyplot(fig)
