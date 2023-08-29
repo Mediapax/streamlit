@@ -12,7 +12,7 @@ def reseauxDeNeurones():
     displayBackground("#000000","#FFFFFF")
     st.header("Réseaux de Neurones")
     st.markdown("La richesse des réseaux de neurones fait qu'on peut aborder la modélisation du problème de nombreuses façons :")
-    """
+    st.markdown("""
     - Entrée :
         - Variables du jour
         - Variables d'une fenêtre de *n* jours antérieurs
@@ -23,7 +23,7 @@ def reseauxDeNeurones():
     - Sortie :
         - Probabilité de pluie
         - Quantité de pluie
-    """
+    """)
     st.markdown("Compte tenu du succès de la prédiction de pluie par le modèle ARIMA, on envisage une approche temporelle avec \
     un réseau de neurones récurrents alimenté par une fenêtre de quelques jours de variables. En sortie, le réseau retourne \
     la probabilité de pluie au moyen d'une fonction logistique.")
