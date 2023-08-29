@@ -24,6 +24,9 @@ def reseauxDeNeurones():
     - Sortie :
         - Probabilité de pluie
         - Quantité de pluie
+    - Entraînement :
+        - Variables d'une seule ville
+        - Variables de toutes les villes
     """)
     st.markdown("Compte tenu du succès de la prédiction de pluie par le modèle ARIMA, on envisage une approche temporelle avec \
     un réseau de neurones récurrents alimenté par une fenêtre de quelques jours de variables. En sortie, le réseau retourne \
@@ -37,8 +40,8 @@ def reseauxDeNeurones():
     st.subheader("Architecture du réseau")
     st.image(loadImage(filename_path+"lstm_model_graph.png", 300))
     st.subheader("Entraînement du réseau")
-    st.markdown("Le modèle est entraîné sur 5 années de données et validé sur les données de la dernière année. \
-    La fonction de perte est la `binary_crossentropy`.")
+    st.markdown("Le modèle est entraîné sur 5 années de données de la ville d'Albury et validé sur les données \
+    de la dernière année. La fonction de perte est la `binary_crossentropy`.")
     st.markdown("L'entraînement est assez délicat car la convergence du modèle dépend fortement de \
     l'initialisation des poids. Il est nécessaire d'entraîner une vingtaine de fois le modèle avec des poids \
     initiaux différents pour espérer obtenir un modèle donnant des résultats pas trop mauvais.")
