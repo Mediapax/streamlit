@@ -141,7 +141,7 @@ def RealTimeModelingRegressions():
         st.markdown(f"R2 = {r2}")
     
         fig, ax = plt.subplots(1,1)
-        y_max = np.max(y_test2)
+        y_max = st.slider('Zoom', 1, np.max(y_test2))
         ax.scatter(y_test2, y_test_pred, s=1, alpha=0.4, zorder=10)
         ax.plot([0,y_max], [0,y_max], c='grey', zorder=3)
         ax.set_xlim(0,y_max)
