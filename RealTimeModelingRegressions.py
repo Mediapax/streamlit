@@ -86,10 +86,10 @@ def RealTimeModelingRegressions():
     X_train2 = X_train
     y_train2_RainTomorrow = y_train_RainTomorrow
    
-    if resample_on == "Oui":
-        resampling_ratio = st.slider('Choisissez votre ratio de ré-échantillonnage:', 30, 100, 40)
-        sampler = RandomUnderSampler(sampling_strategy=(resampling_ratio/100))
-        X_train2, y_train2_RainTomorrow = sampler.fit_resample(X_train, y_train_RainTomorrow) 
+    #if resample_on == "Oui":
+    #    resampling_ratio = st.slider('Choisissez votre ratio de ré-échantillonnage:', 30, 100, 40)
+    #    sampler = RandomUnderSampler(sampling_strategy=(resampling_ratio/100))
+    #    X_train2, y_train2_RainTomorrow = sampler.fit_resample(X_train, y_train_RainTomorrow) 
 
     #--------- Séparation des variables pour la regression --------#
     y_test2_RainTomorrow = y_test_RainTomorrow
