@@ -12,16 +12,18 @@ def reseauxDeNeurones():
     displayBackground("#000000","#FFFFFF")
     st.header("Réseaux de Neurones")
     st.markdown("La richesse des réseaux de neurones fait qu'on peut aborder la modélisation du problème de nombreuses façons :")
-    st.markdown("- Entrée :")
-    st.markdown("    - Variables du jour")
-    st.markdown("    - Variables d'une fenêtre de *n* jours antérieurs")
-    st.markdown("- Traitement :")
-    st.markdown("    - Couches denses (réseau de neurones à propagation avant)")
-    st.markdown("    - Couches de convolution (détection de pattern)")
-    st.markdown("    - Réseau de neurones récurrents (approche temporelle)")
-    st.markdown("- Sortie :")
-    st.markdown("    - Probabilité de pluie")
-    st.markdown("    - Quantité de pluie")
+    """
+    - Entrée :
+        - Variables du jour
+        - Variables d'une fenêtre de *n* jours antérieurs
+    - Traitement :
+        - Couches denses (réseau de neurones à propagation avant)
+        - Couches de convolution (détection de pattern)        
+        - Réseau de neurones récurrents (approche temporelle)        
+    - Sortie :
+        - Probabilité de pluie
+        - Quantité de pluie
+    """
     st.markdown("Compte tenu du succès de la prédiction de pluie par le modèle ARIMA, on envisage une approche temporelle avec \
     un réseau de neurones récurrents alimenté par une fenêtre de quelques jours de variables. En sortie, le réseau retourne \
     la probabilité de pluie au moyen d'une fonction logistique.")
@@ -32,4 +34,4 @@ def reseauxDeNeurones():
     st.markdown("- En sortie : un unique neurone avec activation sigmoïde retournant la probabilité de pluie")
     st.markdown("- Des couches de *dropout* sont intercalées au niveau des couches denses")
     st.subheader("Architecture du réseau")
-    st.image(loadImage(filename_path+"lstm_model_graph.png",400))
+    st.image(loadImage(filename_path+"lstm_model_graph.png", 300))
