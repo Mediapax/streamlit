@@ -35,3 +35,9 @@ def reseauxDeNeurones():
     st.markdown("- Des couches de *dropout* sont intercalées au niveau des couches denses")
     st.subheader("Architecture du réseau")
     st.image(loadImage(filename_path+"lstm_model_graph.png", 300))
+    st.subheader("Entraînement du réseau")
+    st.markdown("Le modèle est entraîné sur 5 années de données et validé sur les données de la dernière année.")
+    st.markdown("L'entraînement est assez délicat car la convergence du modèle dépend fortement de \
+    l'initialisation des poids. Il est nécessaire d'entraîner une vingtaine de fois le modèle avec des poids \
+    initiaux différents pour espérer obtenir un modèle donnant des résultats pas trop mauvais.")
+    st.image(loadImage(filename_path+"lstm_model_training.png", 400))
