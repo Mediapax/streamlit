@@ -17,7 +17,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 def RealTimeModelingRegressions():
     st.header("Régressions")
     
-    st.write("Nos meilleurs simulations nous ont permis d'obtenir un F1-score de 0.662 et de maintenir une Accuracy de 0.87")
+    st.write("Nos meilleurs simulations nous ont permis d'obtenir un R2 score de 0.34.")
     st.write("Pouvez-vous faire mieux ?")
 
     st.divider()
