@@ -37,7 +37,8 @@ def reseauxDeNeurones():
     st.subheader("Architecture du réseau")
     st.image(loadImage(filename_path+"lstm_model_graph.png", 300))
     st.subheader("Entraînement du réseau")
-    st.markdown("Le modèle est entraîné sur 5 années de données et validé sur les données de la dernière année.")
+    st.markdown("Le modèle est entraîné sur 5 années de données et validé sur les données de la dernière année. \
+    La fonction de perte est la `binary_crossentropy`.")
     st.markdown("L'entraînement est assez délicat car la convergence du modèle dépend fortement de \
     l'initialisation des poids. Il est nécessaire d'entraîner une vingtaine de fois le modèle avec des poids \
     initiaux différents pour espérer obtenir un modèle donnant des résultats pas trop mauvais.")
@@ -45,3 +46,6 @@ def reseauxDeNeurones():
     st.subheader("Métriques pour la ville d'Albury")
     df_result = pd.DataFrame(data={'balanced_accuracy':[0.602], 'f1-score':[0.605]})
     st.dataframe(df_result, hide_index=True)
+    st.markdown("Les résultats ne sont pas extraordinaires. La trop faible diminution de la fonction de perte \
+    lors de l'apprentissage vient probablement d'une difficulté à repérer des patterns récurrents \
+    dans les données.")
