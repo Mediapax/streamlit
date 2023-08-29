@@ -146,5 +146,8 @@ def RealTimeModelingRegressions():
         ax.plot([0,y_max], [0,y_max], c='grey', zorder=3)
         ax.set_xlim(0,y_max)
         ax.set_ylim(0,y_max)
+        ax.set_xlabel('Précipitations observées')
+        ax.set_ylabel('Précipitations prédites')
+        ax.set_title('Prédiction vs Observation (sur le jeu de test)')
         st.pyplot(fig)
         
