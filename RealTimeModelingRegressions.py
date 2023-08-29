@@ -12,7 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 
-from imblearn.under_sampling import RandomUnderSampler
+#from imblearn.under_sampling import RandomUnderSampler
 
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
@@ -76,19 +76,22 @@ def RealTimeModelingRegressions():
     X_train, X_test, y_train_RainTomorrow, y_test_RainTomorrow = train_test_split(data, target.values, test_size=0.2, random_state=1234)
 
     st.subheader("2. Ré-échantillonnage:")
+    st.markdown("imblearn ne semble pas fonctionner avec streamlit cloud.")
     #--------- Choix d'un rescaler --------#
     #resample_on = st.toggle('Activer le sous-échantillonnage')
 
-    resample_on = st.selectbox('Souhaitez-vous activer un sous-échantillonnage avec RandomUnderSampler ?', ('Non', 'Oui'))
+    #resample_on = st.selectbox('Souhaitez-vous activer un sous-échantillonnage avec RandomUnderSampler ?', ('Non', 'Oui'))
 
-    if resample_on == "Oui":
-        resampling_ratio = st.slider('Choisissez votre ratio de ré-échantillonnage:', 30, 100, 40)
-        sampler = RandomUnderSampler(sampling_strategy=(resampling_ratio/100))
-        X_train2, y_train2_RainTomorrow = sampler.fit_resample(X_train, y_train_RainTomorrow)
-    else:
-        st.markdown("Pas de sous-échantillonnage.")
-        X_train2 = X_train
-        y_train2_RainTomorrow = y_train_RainTomorrow
+    #if resample_on == "Oui":
+    #    resampling_ratio = st.slider('Choisissez votre ratio de ré-échantillonnage:', 30, 100, 40)
+    #    sampler = RandomUnderSampler(sampling_strategy=(resampling_ratio/100))
+    #    X_train2, y_train2_RainTomorrow = sampler.fit_resample(X_train, y_train_RainTomorrow)
+    #else:
+    #    st.markdown("Pas de sous-échantillonnage.")
+    #    X_train2 = X_train
+    #    y_train2_RainTomorrow = y_train_RainTomorrow
+    X_train2 = X_train
+    y_train2_RainTomorrow = y_train_RainTomorrow
 
     #--------- Séparation des variables pour la regression --------#
     y_test2_RainTomorrow = y_test_RainTomorrow
