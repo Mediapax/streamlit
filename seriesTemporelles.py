@@ -75,13 +75,14 @@ def seriesTemporelles():
 
     st.divider()
     st.subheader("Qualité des résultats pour toutes les villes")
+    st.markdown("On effectue l'ajustement des modèles pour chaque ville. On peut remarquer que la qualité de l'estimation varie selon les villes.")
     df_location_results = load(filename_path+'joblib_location_scores.predtest')
     df_location_results = df_location_results.sort_values(['f1-score', 'balanced_accuracy'], ascending=False)
     
     df_location_results = df_location_results.melt(id_vars='location', value_vars=['f1-score', 'balanced_accuracy'], var_name='Variable', value_name='Value') \
         .sort_values(['Variable', 'Value'], ascending=False)    
     fig = sns.catplot(df_location_results, x='Value', y='location', hue='Variable', kind='bar', height=8,
-            hue_order=['f1-score', 'balanced_accuracy'], legend_out=False, palette='deep')
+            hue_order=['balanced_accuracy', 'f1-score'], legend_out=False, palette='deep')
     fig.axes[0].item().grid(axis='x')
     plt.xlim(0.0, 1.0)
     plt.title('Scores')
