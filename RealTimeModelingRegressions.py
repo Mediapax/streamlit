@@ -140,7 +140,7 @@ def RealTimeModelingRegressions():
         st.markdown(f"MAE = {mae}")
         st.markdown(f"R2 = {r2}")
         
-        y_max = st.slider('Zoom', 1, int(np.max(y_test2)+1), int(np.max(y_test2)+1))
+        y_max = np.max(y_test2)
     
         fig, ax = plt.subplots(1,1)
         ax.scatter(y_test2, y_test_pred, s=1, alpha=0.4, zorder=10)
