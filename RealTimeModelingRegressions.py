@@ -76,22 +76,20 @@ def RealTimeModelingRegressions():
     X_train, X_test, y_train_RainTomorrow, y_test_RainTomorrow = train_test_split(data, target.values, test_size=0.2, random_state=1234)
 
     st.subheader("2. Ré-échantillonnage:")
-    st.markdown("imblearn ne semble pas fonctionner avec streamlit cloud.")
     #--------- Choix d'un rescaler --------#
     #resample_on = st.toggle('Activer le sous-échantillonnage')
 
-    #resample_on = st.selectbox('Souhaitez-vous activer un sous-échantillonnage avec RandomUnderSampler ?', ('Non', 'Oui'))
+    resample_on = st.selectbox('Souhaitez-vous activer un sous-échantillonnage avec RandomUnderSampler ?', ('Non', 'Oui'))
 
-    #if resample_on == "Oui":
-    #    resampling_ratio = st.slider('Choisissez votre ratio de ré-échantillonnage:', 30, 100, 40)
-    #    sampler = RandomUnderSampler(sampling_strategy=(resampling_ratio/100))
-    #    X_train2, y_train2_RainTomorrow = sampler.fit_resample(X_train, y_train_RainTomorrow)
-    #else:
-    #    st.markdown("Pas de sous-échantillonnage.")
-    #    X_train2 = X_train
-    #    y_train2_RainTomorrow = y_train_RainTomorrow
+    
+    # initialisation des valeurs par défaut de X_train2 et y_train2_RainTomorrow
     X_train2 = X_train
     y_train2_RainTomorrow = y_train_RainTomorrow
+   
+    if resample_on == "Oui":
+        resampling_ratio = st.slider('Choisissez votre ratio de ré-échantillonnage:', 30, 100, 40)
+        sampler = RandomUnderSampler(sampling_strategy=(resampling_ratio/100))
+        X_train2, y_train2_RainTomorrow = sampler.fit_resample(X_train, y_train_RainTomorrow) 
 
     #--------- Séparation des variables pour la regression --------#
     y_test2_RainTomorrow = y_test_RainTomorrow
@@ -100,6 +98,7 @@ def RealTimeModelingRegressions():
     X_train2 = X_train2.drop('Rainfall_T', axis=1)
     X_test2 = X_test.drop('Rainfall_T', axis=1)
 
+    # --- Affichage du nombre de valeurs et de leurs répartitions
     len_0 = pd.Series(y_train2_RainTomorrow).value_counts()[0]
     len_1 = pd.Series(y_train2_RainTomorrow).value_counts()[1]
     st.markdown(f"Nombre d'observations sur le jeu d'entrainement: {len(X_train2)} (Ratio de '1': {np.round(len_1/(len_0+len_1),2)})")
@@ -112,7 +111,7 @@ def RealTimeModelingRegressions():
     #scaling_on = st.toggle('Activer la normalisation')
     scaling_on = st.selectbox('Activer la normalisation', ('Non', 'StandardScaler', 'MinMaxScaler'))
 
-    # initialisation des valeurs par défaut de X_train4 et X_train3
+    # initialisation des valeurs par défaut de X_train3 et X_train3
     X_train3 = X_train2
     X_test3 = X_test2
     
