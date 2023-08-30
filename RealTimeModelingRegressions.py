@@ -80,7 +80,6 @@ def RealTimeModelingRegressions():
     st.markdown("imblearn ne semble pas fonctionner avec streamlit cloud")
     resample_on = st.selectbox('Souhaitez-vous activer un sous-échantillonnage avec RandomUnderSampler ?', ('Non', 'Oui'))
 
-    
     # initialisation des valeurs par défaut de X_train2 et y_train2_RainTomorrow
     X_train2 = X_train
     y_train2_RainTomorrow = y_train_RainTomorrow
@@ -100,10 +99,10 @@ def RealTimeModelingRegressions():
     # --- Affichage du nombre de valeurs et de leurs répartitions
     len_0 = pd.Series(y_train2_RainTomorrow).value_counts()[0]
     len_1 = pd.Series(y_train2_RainTomorrow).value_counts()[1]
-    st.markdown(f"Nombre d'observations sur le jeu d'entrainement: {len(X_train2)} (Ratio de '1': {np.round(len_1/(len_0+len_1),2)})")
+    st.markdown(f"Nombre d'observations sur le jeu d'entrainement: {len(X_train2)} (Ratio de '1': {np.round(len_1/(len_0+len_1)*100,2)}%)")
     len_0_test = pd.Series(y_test2_RainTomorrow).value_counts()[0]
     len_1_test = pd.Series(y_test2_RainTomorrow).value_counts()[1]
-    st.markdown(f"Nombre d'observations sur le jeu de test: {len(X_test2)} (Ratio de '1': {np.round(len_1_test/(len_0_test+len_1_test),2)})")
+    st.markdown(f"Nombre d'observations sur le jeu de test: {len(X_test2)} (Ratio de '1': {np.round(len_1_test/(len_0_test+len_1_test)*100,2)}%)")
     
     st.subheader("3. Normalisation:")
     #--------- Choix d'une solution de normalisation  --------#
