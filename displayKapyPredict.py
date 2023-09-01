@@ -133,7 +133,7 @@ def displayKapyPredict():
         model_params = df_params.loc[loc]
         cst = model_params['const']
         ar = model_params['ar.L1']
-        lin_idx = X_new.iloc[1:, 0].columns
+        lin_idx = X_new.columns[1:]
         X_offset_idx = [i + '_offset' for i in lin_idx]
         X_scale_idx = [i + '_scale' for i in lin_idx]
         lin = model_params[lin_idx]
