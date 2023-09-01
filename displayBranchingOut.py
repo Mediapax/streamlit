@@ -4,7 +4,7 @@ import streamlit as st
 from resizeImage import resizeImage, loadImage
 
 def displayBranchingOut():
-    chemin = ".\\photosequipe\\"
+    chemin = "./photosequipe/"
     st.title("Bilan et suite du projet")
     st.write("")
     st.write("Le tableau suivant résume l’ordre de grandeur des meilleurs résultats que nous avons obtenus:")
