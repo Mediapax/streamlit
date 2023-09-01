@@ -137,9 +137,8 @@ def displayKapyPredict():
         X_offset_idx = [i + '_offset' for i in lin_idx]
         X_scale_idx = [i + '_scale' for i in lin_idx]
         lin = model_params[lin_idx]
-        st.write(lin)
         log_rainfall = np.log1p(X_new.iloc[0, 0])
-        X_scaled = (X_new.iloc[1:, 0] + lin[X_offset_idx]) * lin[X_scale_idx]
+        X_scaled = (X_new.iloc[1:, 0] + model_params[X_offset_idx]) * model_params[X_scale_idx]
         y_pred = (lin * X_scaled).sum()
         y_pred += cst
         y_pred += ar * log_rainfall
