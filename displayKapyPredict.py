@@ -130,7 +130,7 @@ def displayKapyPredict():
         st.markdown("- `pas de saisonnalité`")
 
         # Affichage de la prédiction
-        model_params = df_params[loc]
+        model_params = df_params.loc[loc]
         cst = model_params['const']
         ar = model_params['ar.L1']
         lin = model_params.iloc[1:-2]
