@@ -138,7 +138,7 @@ def displayKapyPredict():
         y_pred = (lin * X_new.drop(columns='Rainfall')).sum()
         y_pred += cst
         y_pred += ar * log_rainfall
-        rainfall_pred = np.expm1(y_pred)
+        rainfall_pred = np.expm1(y_pred).item()
         rainfall_pred_pos = max(0.0, rainfall_pred)
 
         st.write('Prédiction (en mm): ', np.round(rainfall_pred_pos,2))
