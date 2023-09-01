@@ -116,6 +116,33 @@ def displayKapyPredict():
     with col3:
         #-----------------Prédiction n°3-----------------#
         st.subheader('Prédiction 3')
-        # mettre le code ici
+
+        # Charger le modèle depuis le fichier
+        chemin = "./models/arima/"
+        df_params = load(chemin+'Locations_ArimaParameters.joblib')
+        df_params.sort_index(inplace=True)
+
+        loc = st.selectbox("Ville :", df_params.index)
+
+         # récupération du modèle
+        st.markdown('**Modèle utilisé:**')
+        st.markdown("* `AR(1)`")
+        st.markdown("- `pas de saisonnalité`")
+
+        # Affichage de la prédiction
+        model_params = df_params[loc]
+        cst = model_params['const']
+        ar = model_params['ar.L1']
+        lin = model_params.iloc[1:-2]
+        log_rainfall = np.log1p(X_new['Rainfall'])
+        y_pred = (lin * X_new.drop(columns='Rainfall')[0]).sum()
+        y_pred += cst
+        y_pred += ar * log_rainfall
+        rainfall_pred = np.expm1(y_pred)
+        rainfall_pred_pos = max(0.0, rainfall_pred)
+
+        st.write('Prédiction (en mm): ', np.round(rainfall_pred_pos,2))
         
+        st.write('% de chance de pluie le lendemain: ', np.round(kapy_acc_score(rainfall_pred)*100,2)) 
+
         #-----------------Fin de la Prédiction n°3-----------------#
