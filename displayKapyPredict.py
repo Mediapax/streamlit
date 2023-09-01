@@ -134,8 +134,9 @@ def displayKapyPredict():
         cst = model_params['const']
         ar = model_params['ar.L1']
         lin = model_params.iloc[1:-2]
-        log_rainfall = np.log1p(X_new['Rainfall'].iloc[0])
-        y_pred = (lin * X_new.drop(columns='Rainfall').iloc[:, 0]).sum()
+        st.write(lin)
+        log_rainfall = np.log1p(X_new.iloc[0, 0])
+        y_pred = (lin * X_new.iloc[1:, 0]).sum()
         y_pred += cst
         y_pred += ar * log_rainfall
         rainfall_pred = np.expm1(y_pred)
