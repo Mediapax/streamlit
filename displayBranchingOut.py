@@ -34,6 +34,7 @@ def displayBranchingOut():
         "</table>"
     st.markdown(meilleursResultats,unsafe_allow_html = True)
     st.write("")
+    st.write("")
 
     col1, col2 = st.columns([0.2, 0.7])
     with col1 :
