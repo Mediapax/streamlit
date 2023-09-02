@@ -12,6 +12,8 @@ from displayBackground import displayBackground
 from resizeImage import resizeImage, loadImage
 
 def main():
+    #Parame de la page
+    st.set_page_config(page_title="Projet Kapy", page_icon=":cloud:", layout="wide", initial_sidebar_state="expanded", menu_items=None)
 
     # fonction "weights_sqr"
     def weights_sqr(d):
@@ -59,6 +61,21 @@ def main():
         displayBranchingOut()
 
     #displayBackground("#000000","#FFFFFF")
+
+    st.sidebar.divider()
+    
+    st.sidebar.markdown(
+    """
+    <span style='font-style: italic; color: gray; font-weight: bold; font-size: 14px; line-height: 0.8;'>
+        L'Equipe Kapy :<br>
+        <a href='https://www.linkedin.com/in/arnaudmachefel/'>Arnaud Machefel</a>&nbsp;&nbsp;&nbsp;
+        <a href='https://www.linkedin.com/in/olivier-lauffenburger-ba2792276'>Olivier Lauffenburger</a><br>
+        <a href='https://www.linkedin.com/in/pierre-le-bert-2270122'>Pierre Le Bert</a>&nbsp;&nbsp;&nbsp;
+        <a href='https://www.linkedin.com/in/marionkaisserlian/'>Marion Kaisserlian</a>
+    </span>
+    """,
+    unsafe_allow_html=True
+)
 
 if __name__ == "__main__":
     main()
