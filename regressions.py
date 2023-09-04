@@ -57,7 +57,9 @@ def regressions():
         st.markdown("**Données cibles:**")
         st.markdown("1. Log")
         st.markdown('2. 1/x')
-        st.image(filename_path+'DistributionRainfall.png')
+        
+        with st.expander("Voir graphiques"):
+            st.image(filename_path+'DistributionRainfall.png')
     
     
     # Résultats
