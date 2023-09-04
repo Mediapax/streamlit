@@ -11,6 +11,9 @@ import matplotlib.pyplot as plt
 def regressions():
     st.title('Regressions') 
     
+    # chemin d'accès aux modèles enregistrés
+    filename_path = './models/regressions/'
+    
     st.markdown("Une regression peut être envisagée en transformant la variable `Rainfall` en une variable `Rainfall_Tomorrow`. Il s'agira donc de prédire une quantité de pluie à venir.")
     
     
@@ -54,9 +57,8 @@ def regressions():
         st.markdown("**Données cibles:**")
         st.markdown("1. Log")
         st.markdown('2. 1/x')
+        st.image(filename_path+'DistributionRainfall.png')
     
-    # chemin d'accès aux modèles enregistrés
-    filename_path = './models/regressions/'
     
     # Résultats
     st.header("Résultats")
