@@ -103,7 +103,7 @@ def explorationDesDonnees():
         st.write("-	La plupart des précipitation sont assez faible (<10mm) mais nous observons aussi des valeurs extrêmes très élevées (jusqu’à >300mm)")
         st.write("-	Il y a une saisonnalité dans la quantité de précipitation tout au long de l’année.")
 
-        st.image(loadImage(chemin+"DistributionRainTomorrow.jpg",800))
+        st.image(loadImage(chemin+"DistributionRainTomorrow.png",800))
         st.write("")
         st.image(loadImage(chemin+"DistributionDesPrecipitations.jpg",800))
         st.write("")
