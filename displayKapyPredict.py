@@ -49,7 +49,7 @@ def displayKapyPredict():
     
     # vecteur à prédire
     
-    col1, col2, col3 = st.columns(3) #colonnes pour la prédiction
+    col1, col2 = st.columns(2) #colonnes pour la prédiction
     
     X_new = pd.DataFrame.from_dict(values, orient='index').transpose()
 
