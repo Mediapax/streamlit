@@ -48,6 +48,9 @@ def displayKapyPredict():
     st.divider()
     
     # vecteur à prédire
+    
+    col1, col2, col3 = st.columns(3) #colonnes pour la prédiction
+    
     X_new = pd.DataFrame.from_dict(values, orient='index').transpose()
 
     #-----------------Prédiction avec la regression-----------------#
@@ -95,7 +98,8 @@ def displayKapyPredict():
     df_params = load(chemin+'Locations_ArimaParameters.joblib')
     df_params.sort_index(inplace=True)
 
-    loc = st.selectbox("Ville :", df_params.index)
+    with col1:
+        loc = st.selectbox("Ville :", df_params.index)
 
     # Affichage de la prédiction
     model_params = df_params.loc[loc]
@@ -118,10 +122,12 @@ def displayKapyPredict():
     arima_rain_ratio = kapy_acc_score(rainfall_pred)
 
     #-----------------Fin de la Prédiction n°3-----------------#
-    
-    st.subheader("Prédiction:")
-    mean_rain_ratio = np.mean([reg_rain_ratio, knn_rain_ratio, arima_rain_ratio])
-    print_weather(mean_rain_ratio, width=100)
+
+        
+    with col2:
+        st.subheader("Prédiction:")
+        mean_rain_ratio = np.mean([reg_rain_ratio, knn_rain_ratio, arima_rain_ratio])
+        print_weather(mean_rain_ratio, width=100)
     
     
     st.divider()
