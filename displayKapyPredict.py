@@ -11,6 +11,16 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import r2_score
 from sklearn.pipeline import Pipeline
 
+def print_weather(rain_ratio=0.5, width=50):
+    # affiche le logo du temps prédit en fonction du % de chance de pluie le lendemain
+    logo_path = "./pictures/"
+    if rain_ratio>0.7: # temp pluvieux presque sûr
+        return st.image(logo_path+"rain.png", width=width)
+    elif rain_ratio>0.3: # temp pluvieux presque sûr
+        return st.image(logo_path+"mixed.png", width=width)
+    else: # temp pluvieux presque sûr
+        return st.image(logo_path+"sun.png", width=width)
+
 def displayKapyPredict():
     st.title("Kapy Predict : Va-t-il pleuvoir demain ?")
     
@@ -72,6 +82,8 @@ def displayKapyPredict():
         st.write('Prédiction (en mm): ', np.round(y_new_positive,2))
         
         st.write('% de chance de pluie le lendemain: ', np.round(kapy_acc_score(y_new)*100,2)) 
+
+        print_weather(kapy_acc_score(y_new))
         #-----------------Fin de la prédiction avec la regression-----------------#
 
     with col2:
