@@ -47,7 +47,7 @@ def displayKapyPredict():
         with cols[i//3]:
             values[c] = st.slider(c, value=df[c].median(), min_value=df[c].min(), max_value=df[c].max())
             i += 1
-    st.divider()
+    #st.divider()
     
     # vecteur à prédire
     
@@ -98,7 +98,10 @@ def displayKapyPredict():
     df_params = load(chemin+'Locations_ArimaParameters.joblib')
     df_params.sort_index(inplace=True)
 
-    loc = st.selectbox("Ville :", df_params.index)
+    with cols[i//3]:
+        loc = st.selectbox("Ville :", df_params.index)
+        i += 1
+    
     st.divider()
 
     # Affichage de la prédiction
