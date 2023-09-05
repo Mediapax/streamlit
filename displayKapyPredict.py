@@ -14,10 +14,12 @@ from sklearn.pipeline import Pipeline
 def print_weather(rain_ratio=0.5, width=50):
     # affiche le logo du temps prédit en fonction du % de chance de pluie le lendemain
     logo_path = "./pictures/"
-    if rain_ratio>0.7: # temp pluvieux presque sûr
+    if rain_ratio>0.75: # temp pluvieux presque sûr
         return st.image(logo_path+"rain.png", width=width)
-    elif rain_ratio>0.3: # temp pluvieux presque sûr
-        return st.image(logo_path+"mixed.png", width=width)
+    elif rain_ratio>0.5: # temp pluvieux presque sûr
+        return st.image(logo_path+"mixed_rain.png", width=width)
+    elif rain_ratio>0.25: # temp pluvieux presque sûr
+        return st.image(logo_path+"mixed_sun.png", width=width)
     else: # temp pluvieux presque sûr
         return st.image(logo_path+"sun.png", width=width)
 
