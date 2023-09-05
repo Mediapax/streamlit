@@ -69,7 +69,7 @@ def displayKapyPredict():
     
     # prédiction
     reg_y_new = pipe.predict(X_new)[0]
-    reg_y_new_positive = np.max([0.0, y_new])
+    reg_y_new_positive = np.max([0.0, reg_y_new])
     reg_rain_ratio = kapy_acc_score(reg_y_new)
     #-----------------Fin de la Prédiction avec la regression-----------------#
 
