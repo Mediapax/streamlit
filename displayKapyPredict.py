@@ -131,6 +131,8 @@ def displayKapyPredict():
     mean_rain_ratio = np.mean([reg_rain_ratio, knn_rain_ratio, arima_rain_ratio])
     st.write('% de chance de pluie le lendemain: ', np.round(mean_rain_ratio*100,2))
     print_weather(mean_rain_ratio, width=100)
+    st.write("Note : cette prédiction résulte de la moyenne des 3 prédictions détaillées ci-dessous.")
+    
     
     st.divider()
     
