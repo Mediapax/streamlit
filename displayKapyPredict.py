@@ -129,7 +129,7 @@ def displayKapyPredict():
     # affichage de la prédiction générale
     st.subheader("Prédiction:")
     mean_rain_ratio = np.mean([reg_rain_ratio, knn_rain_ratio, arima_rain_ratio])
-    st.write('% de chance de pluie le lendemain: ', np.round(mean_rain_ratio*100,2)) 
+    st.write('% de chance de pluie le lendemain: ', np.round(mean_rain_ratio*100,2))
     print_weather(mean_rain_ratio, width=100)
     
     st.divider()
