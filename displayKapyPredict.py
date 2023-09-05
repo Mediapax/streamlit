@@ -82,8 +82,9 @@ def displayKapyPredict():
         st.write('Prédiction (en mm): ', np.round(y_new_positive,2))
         
         st.write('% de chance de pluie le lendemain: ', np.round(kapy_acc_score(y_new)*100,2)) 
-
+        st.markdown("<center>")
         print_weather(kapy_acc_score(y_new))
+        st.markdown("</center>")
         #-----------------Fin de la prédiction avec la regression-----------------#
 
     with col2:
