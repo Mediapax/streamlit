@@ -72,8 +72,28 @@ def displayKapyPredict():
     reg_y_new_positive = np.max([0.0, reg_y_new])
     reg_rain_ratio = kapy_acc_score(reg_y_new)
     #-----------------Fin de la Prédiction avec la regression-----------------#
+    #-----------------Prédiction avec KNeighborsClassifier-----------------#
+    st.subheader('Prédiction 2')
+    chemin = "./models/" # sous unix ==> chemin : "models/""
 
+    # Charger le modèle depuis le fichier
+    loaded_knn_model = load(chemin + 'knnmodel1.joblib')
+
+    # chargement normalisation
+    loaded_minmax = load(chemin + 'knnminmax1.joblib')
+    
+    # Affichage de la prédiction
+    new_imput_perso_normalized = loaded_minmax.transform(X_new)
+    probaPluie = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,1]
+    probaSec = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,0]
+
+    knn_rain_ratio = probaPluie
+            
+    #-----------------Fin de la Prédiction n°2-----------------#
+
+    
     st.subheader("Prédiction:")
+    mean_rain_ratio = np.mean([reg_rain_ratio, knn_rain_ratio, ])
     print_weather(reg_rain_ratio, width=100)
     
     
@@ -100,7 +120,6 @@ def displayKapyPredict():
     with col2:
         #-----------------Prédiction avec KNeighborsClassifier-----------------#
         st.subheader('Prédiction 2')
-        chemin = "./models/" # sous unix ==> chemin : "models/""
 
         # récupération du modèle
         st.markdown('**Modèle utilisé:**')
@@ -108,17 +127,6 @@ def displayKapyPredict():
         st.markdown("- `n_neighbors = 10`")
         st.markdown("- `weights = distance`")
         st.markdown("- `metric = 'manhattan'`")
-
-        # Charger le modèle depuis le fichier
-        loaded_knn_model = load(chemin + 'knnmodel1.joblib')
-
-        # chargement normalisation
-        loaded_minmax = load(chemin + 'knnminmax1.joblib')
-        
-        # Affichage de la prédiction
-        new_imput_perso_normalized = loaded_minmax.transform(X_new)
-        probaPluie = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,1]
-        probaSec = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,0]
 
         # pas de pluie
         if  probaSec >=  probaPluie :
@@ -131,9 +139,7 @@ def displayKapyPredict():
             st.write("% de chance de pluie le lendemain: ", np.round(probaPluie*100,2))
         
         st.write("")
-        st.write("")
-        
-                
+        print_weather(probaPluie)
         #-----------------Fin de la Prédiction n°2-----------------#
     
     with col3:
