@@ -93,7 +93,7 @@ def displayKapyPredict():
 
     
     st.subheader("Prédiction:")
-    mean_rain_ratio = np.mean([reg_rain_ratio, knn_rain_ratio, ])
+    mean_rain_ratio = np.mean([reg_rain_ratio, knn_rain_ratio])
     print_weather(reg_rain_ratio, width=100)
     
     
