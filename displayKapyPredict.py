@@ -73,7 +73,6 @@ def displayKapyPredict():
     reg_rain_ratio = kapy_acc_score(reg_y_new)
     #-----------------Fin de la Prédiction avec la regression-----------------#
     #-----------------Prédiction avec KNeighborsClassifier-----------------#
-    st.subheader('Prédiction 2')
     chemin = "./models/" # sous unix ==> chemin : "models/""
 
     # Charger le modèle depuis le fichier
@@ -88,13 +87,41 @@ def displayKapyPredict():
     probaSec = loaded_knn_model.predict_proba(new_imput_perso_normalized)[0,0]
 
     knn_rain_ratio = probaPluie
-            
-    #-----------------Fin de la Prédiction n°2-----------------#
+    #-----------------Fin de la Prédiction avec KNeighborsClassifier-----------------#
+    #-----------------Prédiction n°3-----------------#
+    
+    # Charger le modèle depuis le fichier
+    chemin = "./models/arima/"
+    df_params = load(chemin+'Locations_ArimaParameters.joblib')
+    df_params.sort_index(inplace=True)
 
+    loc = st.selectbox("Ville :", df_params.index)
+
+    # Affichage de la prédiction
+    model_params = df_params.loc[loc]
+    cst = model_params['const']
+    ar = model_params['ar.L1']
+    lin_idx = X_new.columns[1:]
+    X_offset_idx = [i + '_offset' for i in lin_idx]
+    X_scale_idx = [i + '_scale' for i in lin_idx]
+    lin = model_params[lin_idx].to_numpy()
+    lin_offset = model_params[X_offset_idx].to_numpy()
+    lin_scale = model_params[X_scale_idx].to_numpy()
+    log_rainfall = np.log1p(X_new.iloc[0, 0])
+    X_scaled = (X_new.iloc[0, 1:].to_numpy() + lin_offset) / lin_scale
+    y_pred = np.sum(lin * X_scaled)
+    y_pred += cst
+    y_pred += ar * log_rainfall
+    rainfall_pred = np.expm1(y_pred)
+    rainfall_pred_pos = min(max(0.0, rainfall_pred), 371.0)
+
+    arima_rain_ratio = kapy_acc_score(rainfall_pred)
+
+    #-----------------Fin de la Prédiction n°3-----------------#
     
     st.subheader("Prédiction:")
-    mean_rain_ratio = np.mean([reg_rain_ratio, knn_rain_ratio])
-    print_weather(reg_rain_ratio, width=100)
+    mean_rain_ratio = np.mean([reg_rain_ratio, knn_rain_ratio, arima_rain_ratio])
+    print_weather(mean_rain_ratio, width=100)
     
     
     st.divider()
@@ -139,45 +166,21 @@ def displayKapyPredict():
             st.write("% de chance de pluie le lendemain: ", np.round(probaPluie*100,2))
         
         st.write("")
-        print_weather(probaPluie)
+        print_weather(knn_rain_ratio)
         #-----------------Fin de la Prédiction n°2-----------------#
     
     with col3:
         #-----------------Prédiction n°3-----------------#
         st.subheader('Prédiction 3')
 
-        # Charger le modèle depuis le fichier
-        chemin = "./models/arima/"
-        df_params = load(chemin+'Locations_ArimaParameters.joblib')
-        df_params.sort_index(inplace=True)
-
-        loc = st.selectbox("Ville :", df_params.index)
-
          # récupération du modèle
         st.markdown('**Modèle utilisé:**')
         st.markdown("* `AR(1)`")
         st.markdown("- `pas de saisonnalité`")
 
-        # Affichage de la prédiction
-        model_params = df_params.loc[loc]
-        cst = model_params['const']
-        ar = model_params['ar.L1']
-        lin_idx = X_new.columns[1:]
-        X_offset_idx = [i + '_offset' for i in lin_idx]
-        X_scale_idx = [i + '_scale' for i in lin_idx]
-        lin = model_params[lin_idx].to_numpy()
-        lin_offset = model_params[X_offset_idx].to_numpy()
-        lin_scale = model_params[X_scale_idx].to_numpy()
-        log_rainfall = np.log1p(X_new.iloc[0, 0])
-        X_scaled = (X_new.iloc[0, 1:].to_numpy() + lin_offset) / lin_scale
-        y_pred = np.sum(lin * X_scaled)
-        y_pred += cst
-        y_pred += ar * log_rainfall
-        rainfall_pred = np.expm1(y_pred)
-        rainfall_pred_pos = min(max(0.0, rainfall_pred), 371.0)
-
         st.write('Prédiction (en mm): ', np.round(rainfall_pred_pos,2))
         
         st.write('% de chance de pluie le lendemain: ', np.round(kapy_acc_score(rainfall_pred)*100,2)) 
+        print_weather(arima_rain_ratio)
 
         #-----------------Fin de la Prédiction n°3-----------------#
