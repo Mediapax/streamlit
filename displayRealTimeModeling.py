@@ -17,16 +17,10 @@ def displayRealTimeModeling():
     st.title("Construisez votre modèle")
     displayBackground("#000000","#FFFFFF")
 
-    tab1, tab2, tab3, tab4 = st.tabs(["KNeighborsClassifier", "Arima", "Réseau de Neurones", "Régressions"])
+    tab1, tab2 = st.tabs(["KNeighborsClassifier", "Régressions"])
     
     with tab1 :
         RealTimeModelingKNN()
 
-    with tab2 :
-        RealTimeModelingArima()
-
-    with tab3:
-        RealTimeModelingReseauDeNeurones()
-
-    with tab4:
+    with tab2:
         RealTimeModelingRegressions()
