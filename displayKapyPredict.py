@@ -50,41 +50,51 @@ def displayKapyPredict():
     # vecteur à prédire
     X_new = pd.DataFrame.from_dict(values, orient='index').transpose()
 
+    #-----------------Prédiction avec la regression-----------------#
+    pipe = load('models/linreg.joblib')
+    # fonction de prédiction de la précision
+    def kapy_acc_score(x):
+        if x < 1:
+            y = 0.24902482120090305 + x * 0.16254928791072928
+        else:
+            y = 1.0217989542055308
+            y += 0.0 * 1/ (x ** 0)
+            y += -1.4554248529478369 * 1/ (x ** 1)
+            y += 1.1348933361812372 * 1/ (x ** 2)
+            y += -0.32348398974721754 * 1/ (x ** 3)
+            y += 0.02237893370342592 * 1/ (x ** 4)
+        y = max(0, y)
+        y = min(y, 1)
+        return y
+    
+    # prédiction
+    reg_y_new = pipe.predict(X_new)[0]
+    reg_y_new_positive = np.max([0.0, y_new])
+    reg_rain_ratio = kapy_acc_score(reg_y_new)
+    #-----------------Fin de la Prédiction avec la regression-----------------#
+
+    st.subheader("Prédiction:")
+    print_weather(reg_rain_ratio, width=100)
+    
+    
+    st.divider()
+    
     col1, col2, col3 = st.columns(3)
     with col1:
-        #-----------------Prédiction avec la regression-----------------#
+        #-----------------Affichage de la Prédiction avec la regression-----------------#
         st.subheader('Prédiction 1')
         
         # récupération du modèle
-        pipe = load('models/linreg.joblib')
         st.markdown('**Modèle utilisé:**')
         st.markdown("* `PolynomialFeatures(3)`")
         st.markdown("* `LinearRegression`")
         
-        # fonction de prédiction de la précision
-        def kapy_acc_score(x):
-            if x < 1:
-                y = 0.24902482120090305 + x * 0.16254928791072928
-            else:
-                y = 1.0217989542055308
-                y += 0.0 * 1/ (x ** 0)
-                y += -1.4554248529478369 * 1/ (x ** 1)
-                y += 1.1348933361812372 * 1/ (x ** 2)
-                y += -0.32348398974721754 * 1/ (x ** 3)
-                y += 0.02237893370342592 * 1/ (x ** 4)
-            y = max(0, y)
-            y = min(y, 1)
-            return y
-        
-        # prédiction
-        y_new = pipe.predict(X_new)[0]
-        y_new_positive = np.max([0.0, y_new])
-        st.write('Prédiction (en mm): ', np.round(y_new_positive,2))
-        
-        st.write('% de chance de pluie le lendemain: ', np.round(kapy_acc_score(y_new)*100,2)) 
-        st.markdown("<center>")
-        print_weather(kapy_acc_score(y_new))
-        st.markdown("</center>")
+        st.write('Prédiction (en mm): ', np.round(reg_y_new_positive,2))
+
+        st.write('% de chance de pluie le lendemain: ', np.round(reg_rain_ratio*100,2)) 
+
+        # affichage du logo
+        print_weather(reg_rain_ratio)
         #-----------------Fin de la prédiction avec la regression-----------------#
 
     with col2:
